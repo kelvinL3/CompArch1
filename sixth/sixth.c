@@ -6,7 +6,7 @@
 int main(int argc, char **argv) {
 	char *uncompressed = malloc(strlen(argv[1]));
 	uncompressed = argv[1];
-	char *compressed = (char *)malloc(strlen()+1);
+	char *compressed = (char *)malloc(strlen(uncompressed)+1);
 	if (compressed==NULL) {
 		printf("mallocFail!\n");
 		return NULL;
@@ -27,7 +27,11 @@ int main(int argc, char **argv) {
 					//find and put number at i+1
 					int freq = j-i;
 					if (freq == 1) {
-						
+						//the string GROWS in this case, keep the letter and add 1
+					} else if (freq == 2) {
+						//the string stays at the same size
+					} else if (freq >= 3) {
+						//the string SHRINKS, replace the second letter with the freq, call another function to excise the rest
 					}
 					
 					compressed[i+1] = (char) freq;
@@ -46,4 +50,16 @@ int main(int argc, char **argv) {
 	
 	free(compressed);
 	return 1;
+}
+
+//cut out [low, high], inclusive
+char *cutOutFromString(char *str, int size, int low, int high) {
+	//since str is dynamically allocated, cant use strlen()
+	int i;
+	for (i=low; i<=high; i++) {
+		//check if the place im taking from is in bounds
+		if () {
+			
+		}
+	}
 }
