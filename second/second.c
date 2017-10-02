@@ -5,6 +5,10 @@
 
 
 int main(int argc, char **argv) {
+	if(access(argv[1], F_OK )==-1) {
+		printf("error");
+		exit(0);
+	}
 	
 	FILE *f;
 	f = fopen(argv[1], "r");
