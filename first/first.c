@@ -22,8 +22,8 @@ int main(int argc, char **argv) {
 	//head->data = NULL;
 	char instruction = NULL ;
 	int package = NULL;
-	while (fscanf(f, "%c", &instruction)!=EOF){
-		fscanf(f, "%d", &package);
+	while (fscanf(f, " %c", &instruction)!=EOF){
+		fscanf(f, " %d", &package);
 		printf("i, #  %c %d\n", instruction, package);
 		if (instruction == 'i') {
 			printf("INSERT\n");
