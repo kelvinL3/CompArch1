@@ -5,7 +5,7 @@
 #include "seventh.h"
 
 int main(int argc, char **argv) {
-	printf("test to make sure spaces are literally the only delimiter that argv uses to determine indicies\n", );
+	//printf("test to make sure spaces are literally the only delimiter that argv uses to determine indicies\n", );
 	int i;
 	for (i=1; i<argc; i++) {
 		printf("%c", argv[i][strlen(argv[i])-1]);
