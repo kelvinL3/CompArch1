@@ -47,7 +47,9 @@ int main(int argc, char **argv) {
 					ptr = ptr->rightChild;
 					direction = 1;
 				} else if (ptr->data > data) {
+					printf("1\n");
 					ptr = ptr->leftChild;
+					printf("2\n");
 					direction = -1;
 				} else {
 					printf("duplicate\n"); //dont print number here anyways, KEEP NEW LINE
