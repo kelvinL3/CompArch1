@@ -156,7 +156,7 @@ struct node *deleteFromTree(struct node *root, int query) {
 	} else if (ptr->data > query) { //go to the left
 		ptr->leftChild = deleteFromTree(ptr->leftChild, query);
 	}
-	//printf("Why am I getting here???\n");
+	printf("Why am I getting here???\n");
 	return ptr;
 }
 
