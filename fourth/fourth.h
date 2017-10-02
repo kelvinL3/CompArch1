@@ -3,6 +3,6 @@ int size;
 
 
 //fun-ctions
-void multiply(int **baseArray, int **array, int size);
+void multiply(int **baseArray, int **array);
 
-int dot(int **baseArray, int **array, int size, int rowNumber, int colNumber);
+int dot(int **baseArray, int **array, int rowNumber, int colNumber);
