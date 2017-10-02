@@ -118,11 +118,9 @@ void freeHashTable(struct node **array){
 
 void freeList(struct node *head) {
 	if (head == NULL) {
-		//printf("FLAG1");
 		return;
 	}
-	while(head->next != NULL){
-		//printf("FLAG2");
+	if (head->next != NULL) {
 		freeList(head->next);
 	}
 	free(head);
