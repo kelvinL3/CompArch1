@@ -4,6 +4,7 @@ struct node {
 	int data;
 };
 
+int check;
 
 struct node *rightMostNode(struct node *head);
 
