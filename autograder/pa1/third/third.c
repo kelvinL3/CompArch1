@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
 	
 	int temp;
 	if (fscanf(f, " %c", &instruction)!=EOF) {
-		fscanf(f, " %d", &package);
+		fscanf(f, "\t%d", &package);
 		
 		if (instruction == 'i') {		
 			temp = insert(array, hash(package, bucketNumber), package);
@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
 	
 	while (fscanf(f, " %c", &instruction)!=EOF){
 		printf("\n");
-		fscanf(f, " %d", &package);
+		fscanf(f, "\t%d", &package);
 		//printf("i, #  %c %d\n", instruction, package);
 		
 		/*struct node *entry = (struct node *)malloc(sizeof(struct node));
