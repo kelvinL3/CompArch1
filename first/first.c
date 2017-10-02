@@ -13,7 +13,6 @@ int main(int argc, char **argv) {
 		exit(0);
 	}
 	
-	printf("Flag 1\n");
 	
 	FILE *f;
 	f = fopen(argv[1], "r");
@@ -24,8 +23,8 @@ int main(int argc, char **argv) {
 	char instruction = NULL ;
 	int package = NULL;
 	while (fscanf(f, "%c", &instruction)!=EOF){
-		printf("Flag 2\n");
 		fscanf(f, "%d", &package);
+		printf("\ni, #  %c %d\n\n", instruction, package);
 		if (instruction == 'i') {
 			printf("INSERT\n");
 			head = addNode(head, package);
@@ -120,11 +119,13 @@ struct node *removeNode(struct node *head, int deleteData) {
 	struct node *ptr1 = head;
 	struct node *ptr2 = ptr1->next;
 	
+	printf("Pillow 1\n");
 	//if the first node is deleted
 	if (ptr1->data == deleteData) {
 		return ptr2; //return NULL
 	}
 	while (ptr2 != NULL) {
+		printf("Pillow 2\n");
 		if (ptr2->data == deleteData) {
 			ptr1->next = ptr2->next;
 			return head;
