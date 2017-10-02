@@ -22,8 +22,8 @@ int main(int argc, char **argv) {
 	int **baseArray = (int **)malloc(sizeof(int *) * size);
 	int i;
 	for (i=0; i<size; i++) {
-		array[i] = (int *) malloc(sizeof(int) * size);
-		baseArray[i] = (int *) malloc(sizeof(int) * size);
+		int *array = (int *) malloc(sizeof(int) * size);
+		int *baseArray = (int *) malloc(sizeof(int) * size);
 	}
 	int j;
 	for (i=0; i<size; i++) {
@@ -70,9 +70,9 @@ int main(int argc, char **argv) {
 void multiply(int **baseArray, int **array) {
 	int i; int j;
 	
-	int **array1[size] = (int **)malloc(sizeof(int *) * size);
+	int **array1 = (int **)malloc(sizeof(int *) * size);
 	for (i=0; i<size; i++) {
-		array1[i] = (int *) malloc(sizeof(int) * size);
+		int *array1 = (int *) malloc(sizeof(int) * size);
 	}
 	
 	
