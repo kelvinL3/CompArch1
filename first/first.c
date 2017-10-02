@@ -28,7 +28,6 @@ int main(int argc, char **argv) {
 		if (instruction == 'i') {
 			printf("INSERT\n");
 			head = addNode(head, package);
-			printf("dsfasdfdsafdsafdsafds");
 			printList(head);
 		} else if (instruction == 'd') {
 			printf("DELETE\n");
