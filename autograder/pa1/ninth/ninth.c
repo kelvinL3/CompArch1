@@ -175,8 +175,8 @@ int calcHeight(struct node *head, int query) {
 	if (head == NULL) {
 		return 0;
 	}
-	int a = 1 + calcHeight(head->leftChild);
-	int b = 1 + calcHeight(head->rightChild);
+	int a = 1 + calcHeight(head->leftChild, query);
+	int b = 1 + calcHeight(head->rightChild, query);
 	if (b>a) {
 		return b;
 	} else {
