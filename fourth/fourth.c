@@ -109,14 +109,14 @@ int dot(int **baseArray, int **array, int rowNumber, int colNumber){
 void printMatrix(int **baseArray) {
 	int i;
 	int j;
-	for (i=0; i<size-2; i++) {
-		for (j=0; j<size-2; j++) {
+	for (i=0; i<size-1; i++) {
+		for (j=0; j<size-1; j++) {
 			printf("%d\t", baseArray[i][j]);
 		}
 		printf("%d\n", baseArray[i][j]);
 	}
-	for (j=0; j<size-2; j++) {
-			printf("%d\t", baseArray[i][j]);
+	for (j=0; j<size-1; j++) {
+		printf("%d\t", baseArray[i][j]);
 	}
 	printf("%d", baseArray[i][j]);
 }
