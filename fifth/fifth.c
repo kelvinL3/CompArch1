@@ -81,7 +81,9 @@ int exists(int **array, int query) {
 			printf("%d, ", array[i][j]);
 			if (array[i][j] == query){
 				return 1;
+				printf("\n");
 			}
+			printf("\n");
 		}
 	}
 	return -1;
