@@ -38,6 +38,7 @@ int main(int argc, char **argv) {
 	
 	//free array
 	free(array);
+	return 0;
 }
 
 void sort(int *array, int size){
