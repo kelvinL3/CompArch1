@@ -26,12 +26,12 @@ int main(int argc, char **argv) {
 		int *baseArray = (int *) malloc(sizeof(int) * size);
 	}
 	
-	printf("Flag 2\n");
+	printf("Flag 2\n\n");
 	//reading file into array
 	int j;
 	for (i=0; i<size; i++) {
 		for (j=0; j<size; j++) {
-			printf("try scan");
+			printf("try scan\n\n");
 			fscanf(f, " %d", &array[i][j]); //read into array
 			printf("scanned: %d\n",array[i][j]);
 			/*if (j<size-1) {
