@@ -28,7 +28,6 @@ int main(int argc, char **argv) {
 		baseArray[i] = temp2;
 	}
 	
-	printf("Flag 2\n");
 	//reading file into array
 	int j;
 	for (i=0; i<size; i++) {
@@ -38,6 +37,12 @@ int main(int argc, char **argv) {
 			baseArray[i][j] = array[i][i]; //copy over into baseArray
 		}
 	}
+	
+	
+	printMatrix(baseArray);
+	printf("\n");
+	printMatrix(array);
+	printf("\n\n\n");
 	
 //multiply the matrix size times
 	int times;
@@ -52,14 +57,8 @@ int main(int argc, char **argv) {
 	
 	printf("Flag 4\n");
 //print out the matrix with no extra white space and no extra newline at end
-	for (i=0; i<size-1; i++) {
-		for (j=0; j<size-1; j++) {
-			printf("%d\t", baseArray[i][j]);
-		}
-		printf("%d\n", baseArray[i][j]);
-	}
-	printf("%d", baseArray[i][j]);
-	
+
+	printMatrix(baseArray);
 	
 	
 	printf("Flag 5\n");
@@ -105,4 +104,14 @@ int dot(int **baseArray, int **array, int rowNumber, int colNumber){
 		temp = temp + ((baseArray[rowNumber][i])*(array[i][colNumber]));
 	}
 	return temp;
+}
+
+void printMatrix(int **baseArray) {
+	for (i=0; i<size-1; i++) {
+		for (j=0; j<size-1; j++) {
+			printf("%d\t", baseArray[i][j]);
+		}
+		printf("%d\n", baseArray[i][j]);
+	}
+	printf("%d", baseArray[i][j]);
 }
