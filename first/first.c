@@ -126,22 +126,28 @@ struct node *addNode(struct node *head, int newData) {
 
 struct node *removeNode(struct node *head, int deleteData) {
 	struct node *ptr1 = head;
-	struct node *ptr2 = ptr1->next;
 	
-	printf("Pillow 1\n");
+	if (ptr1 == NULL) {
+		return ptr1;
+	}
+	
 	//if the first node is deleted
+	struct node *ptr2 = ptr1->next;
 	if (ptr1->data == deleteData) {
+		free(ptr1);
 		return ptr2; //return NULL
 	}
 	while (ptr2 != NULL) {
 		printf("Pillow 2\n");
 		if (ptr2->data == deleteData) {
 			ptr1->next = ptr2->next;
+			free(ptr2);
 			return head;
 		}
 		ptr1 = ptr1 -> next;
 		ptr2 = ptr2 -> next;
 	}
+	printf("Node to be deleted NOT FOUND\n");
 	return head;
 }
 
