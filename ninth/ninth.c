@@ -56,22 +56,24 @@ int main(int argc, char **argv) {
 					break; //duplicate value //if code reaches here, then ptr is not NULL so the following if statement will not run
 				}
 			}
-			printf("3\n");
 			if (ptr==NULL) {
-				printf("4\n");
+				printf("3, direction %d\n", direction);
 				ptr = (struct node *)malloc(sizeof(struct node));
 				ptr->leftChild = NULL;
 				ptr->rightChild = NULL;
 				ptr->data = data;
 				if (direction == -1) {
+					printf("4\n");
 					printf("inserted");
 					printf(" %d\n", calcHeight(root, data));
 					prev->leftChild = ptr;
 				} else if (direction = 1) {
+					printf("5\n");
 					printf("inserted");
 					printf(" %d\n", calcHeight(root, data));
 					prev->rightChild = ptr;					
 				} else { //direction == 0
+					printf("6\n");
 					printf("ERROR WHY AM I HERE\n");
 				}
 			}
