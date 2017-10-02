@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
 		//compressed[i+1] = (char) freq;
 	}
 	
-	if (strlen(compressed)>=strlen(uncompressed)) {
+	if (strlen(compressed)<=strlen(uncompressed)) {
 		printf("%s\n", compressed);
 	} else {
 		printf("%s\n", uncompressed);
