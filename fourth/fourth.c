@@ -31,7 +31,8 @@ int main(int argc, char **argv) {
 	int j;
 	for (i=0; i<size; i++) {
 		for (j=0; j<size; j++) {
-			fscanf(f, "%d", &array[i][j]); //read into array
+			printf("try scan");
+			fscanf(f, " %d", &array[i][j]); //read into array
 			printf("scanned: %d\n",array[i][j]);
 			if (j<size-1) {
 				fscanf(f, "\t");
