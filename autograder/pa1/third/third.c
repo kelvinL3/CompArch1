@@ -26,27 +26,51 @@ int main(int argc, char **argv) {
 	
 	char instruction = NULL ;
 	int package = NULL;
+	
+	int temp;
+	if (fscanf(f, " %c", &instruction)!=NULL) {
+		fscanf(f, " %d", &package);
+		
+		if (instruction == 'i') {		
+			temp = insert(array, hash(package, bucketNumber), package);
+			if (temp == 1) {
+				printf("inserted");
+			} else {
+				printf("duplicate");
+			}
+		} else if (instruction == 's'){
+			temp = search(array, hash(package, bucketNumber), package);
+			if (temp == 1) {
+				printf("present");
+			} else {
+				printf("absent");
+			}
+		}
+	} else {
+		return 0;
+	}
+	
 	while (fscanf(f, " %c", &instruction)!=EOF){
+		printf("\n");
 		fscanf(f, " %d", &package);
 		//printf("i, #  %c %d\n", instruction, package);
 		
 		/*struct node *entry = (struct node *)malloc(sizeof(struct node));
 		entry->next = NULL;
 		entry->data = package;*/
-		int temp;
 		if (instruction == 'i') {		
 			temp = insert(array, hash(package, bucketNumber), package);
 			if (temp == 1) {
-				printf("inserted\n");
+				printf("inserted");
 			} else {
-				printf("duplicate\n");
+				printf("duplicate");
 			}
 		} else if (instruction == 's'){
 			temp = search(array, hash(package, bucketNumber), package);
 			if (temp == 1) {
-				printf("present\n");
+				printf("present");
 			} else {
-				printf("absent\n");
+				printf("absent");
 			}
 		}
 	}
