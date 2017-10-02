@@ -42,12 +42,15 @@ int main(int argc, char **argv) {
 					freq = j-i;
 					printf("Before: %s\n", compressed);
 					if (freq == 1) {
+						printf("option1\n");
 						//the string GROWS in this case, keep the letter and add 1
 						compressed = growString(compressed, i);
 					} else if (freq == 2) {
+						printf("option2\n");
 						//the string stays at the same size
 						compressed[i+1] = '2';
 					} else if (freq >= 3) {
+						printf("option3\n");
 						//the string SHRINKS, replace the second letter with the freq, call another function to excise the rest
 						compressed = cutOutFromString(compressed, i, j-1);
 					}
