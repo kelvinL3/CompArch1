@@ -1,11 +1,11 @@
 all:
-	gcc eighth.c -o eighth
+	gcc ninth.c -o ninth
 
 clean:
-	rm ./eighth
+	rm ./ninth
 
 run:
-	./eighth test.txt
+	./ninth test.txt
 
 debug:
-	gcc eighth.c -Wall -Werror -fsanitize=address -g
+	gcc ninth.c -Wall -Werror -fsanitize=address -g
