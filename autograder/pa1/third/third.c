@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 	int package = NULL;
 	
 	int temp;
-	if (fscanf(f, " %c", &instruction)!=NULL) {
+	if (fscanf(f, " %c", &instruction)!=EOF) {
 		fscanf(f, " %d", &package);
 		
 		if (instruction == 'i') {		
