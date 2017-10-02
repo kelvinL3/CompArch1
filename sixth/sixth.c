@@ -70,9 +70,9 @@ int main(int argc, char **argv) {
 	}
 	
 	if (strlen(compressed)<=strlen(uncompressed)) {
-		printf("%s\n", compressed);
+		printf("ans: %s\n", compressed);
 	} else {
-		printf("%s\n", uncompressed);
+		printf("ans: %s\n", uncompressed);
 	}
 	
 	//dont forget to check for the listed errors 
@@ -95,7 +95,8 @@ int validString(char *str){
 }
 
 char *growString(char *str, int index) { //index is the index of the singleton char
-	char *temp = (char *)malloc(size+1);
+	size = size + 1;
+	char *temp = (char *)malloc(size);
 	int i;
 	for (i=0; i<=index; i++) {
 		temp[i] = str[i];
@@ -123,6 +124,7 @@ char *cutOutFromString(char *str, int low, int high) {
 	// a, low, b, c, d, high, e, f; size=8
 	// 0, 1  , 2, 3, 4, 5   , 6, 7; 
 	// a, low, n, e, f				size=5
+	size = size-(high-low)+1;
 	free(str);
 	return temp;
 }
