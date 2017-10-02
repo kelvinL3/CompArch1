@@ -61,9 +61,11 @@ int main(int argc, char **argv) {
 	printf("Flag 5\n");
 //free all our malloced arrays
 	for (i=0; i<size; i++) {
+		printf("free i=%d\n",i);
 		free(array[i]);
 		free(baseArray[i]);
 	}
+	printf("Flag 6\n");
 	free(array);
 	free(baseArray);
 	return 0;
