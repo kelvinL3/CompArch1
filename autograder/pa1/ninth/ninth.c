@@ -171,7 +171,20 @@ struct node *deleteFromTree(struct node *root, int query) {
 }
 
 int calcHeight(struct node *head, int query) {
-	// assume the query is in the tree
+	
+	struct node *ptr = head;
+	int found = 0;
+	while (ptr!=NULL) {
+		if (ptr->data < query) { //go to the right
+			ptr = ptr->rightChild;
+		} else if (ptr->data > query) {
+			ptr = ptr->leftChild;
+		} else { //found the element
+			break; //out of this while loop
+		}
+	}
+	
+	// assume ptr is pointing at the node
 	if (head == NULL) {
 		return 0;
 	}
