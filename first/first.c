@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
 	int package = NULL;
 	while (fscanf(f, "%c", &instruction)!=EOF){
 		fscanf(f, "%d", &package);
-		printf("\ni, #  %c %d\n\n", instruction, package);
+		printf("i, #  %c %d\n", instruction, package);
 		if (instruction == 'i') {
 			printf("INSERT\n");
 			head = addNode(head, package);
@@ -100,10 +100,12 @@ struct node *addNode(struct node *head, int newData) {
 			break;
 		}
 		if (newData < temp->data) {
+			printf("Insert %d at\n", newData);
 			temp2->next = insert;
 			insert->next = temp;
 			return head;
 		} else if (temp->data == newData) {
+			printf("Duplicate, not inserted\n");
 			return head;
 		}
 	}
