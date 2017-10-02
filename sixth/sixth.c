@@ -33,34 +33,34 @@ int main(int argc, char **argv) {
 		toCompress = compressed[i];
 		printf("compress: %c\n", toCompress);
 		for (j=i+1; j<strlen(compressed)+1; j++) { //find where the char changes
-			if (j==strlen(compressed)+1 || compressed[j]!=toCompress) { //what happens when != is not the condition
+			if (j==strlen(compressed) || compressed[j]!=toCompress) { //what happens when != is not the condition
 				//reached end of same character sequence
 				//replace compressed[i,j-1]
 				
-					//replace from [i, j)
-					//find and put number at i+1
-					freq = j-i;
-					printf("Before: %s\n", compressed);
-					if (freq == 1) {
-						printf("option1, i %d\n", i);
-						//the string GROWS in this case, keep the letter and add 1
-						compressed = growString(compressed, i);
-					} else if (freq == 2) {
-						printf("option2\n");
-						//the string stays at the same size
-						compressed[i+1] = '2';
-					} else if (freq >= 3) {
-						printf("option3\n");
-						//the string SHRINKS, replace the second letter with the freq, call another function to excise the rest
-						compressed = cutOutFromString(compressed, i, j-1);
-					}
-					printf("After: %s\n", compressed);
-					i++;
-					break;
-					//compressed[i+1] = (char) freq;
-					
-					//keep on copying data from (j->i+2) until j hits the upper bound
-					//add the null terminator after where i+2 stopped
+				//replace from [i, j)
+				//find and put number at i+1
+				freq = j-i;
+				printf("Before:%s:\n", compressed);
+				if (freq == 1) {
+					printf("option1, i %d\n", i);
+					//the string GROWS in this case, keep the letter and add 1
+					compressed = growString(compressed, i);
+				} else if (freq == 2) {
+					printf("option2\n");
+					//the string stays at the same size
+					compressed[i+1] = '2';
+				} else if (freq >= 3) {
+					printf("option3\n");
+					//the string SHRINKS, replace the second letter with the freq, call another function to excise the rest
+					compressed = cutOutFromString(compressed, i, j-1);
+				}
+				printf("After:%s:\n", compressed);
+				i++;
+				break;
+				//compressed[i+1] = (char) freq;
+				
+				//keep on copying data from (j->i+2) until j hits the upper bound
+				//add the null terminator after where i+2 stopped
 			}
 		}
 		/*freq = j-i;
