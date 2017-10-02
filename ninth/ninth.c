@@ -17,8 +17,7 @@ int main(int argc, char **argv) {
 	f = fopen(argv[1], "r");
 
 	struct node *root = NULL;
-	int i;
-
+	
 //variables for reading in
 	char instruction;
 	int data;	
@@ -67,7 +66,7 @@ int main(int argc, char **argv) {
 					printf("inserted");
 					prev->leftChild = ptr;
 					printf(" %d\n", calcHeight(root, data));
-				} else if (direction = 1) {
+				} else if (direction == 1) {
 					//printf("5\n");
 					printf("inserted");
 					prev->rightChild = ptr;					
@@ -158,7 +157,7 @@ struct node *deleteFromTree(struct node *root, int query) {
 		ptr->leftChild = deleteFromTree(ptr->leftChild, query);
 	}
 	printf("Why am I getting here???\n");
-	return NULL;
+	return ptr;
 }
 
 int calcHeight(struct node *head, int query) {
