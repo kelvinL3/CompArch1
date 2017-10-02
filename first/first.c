@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
 		}
 		printf("%d", head->data);
 	}
-	
+	printf("WHY ERROR?\n");
 	freeList(head);
 }
 
@@ -174,9 +174,11 @@ void printList(struct node *head){
 
 void freeList(struct node *head) {
 	if (head == NULL) {
+		printf("FLAG1");
 		return;
 	}
 	while(head->next != NULL){
+		printf("FLAG2");
 		freeList(head->next);
 	}
 	free(head);
