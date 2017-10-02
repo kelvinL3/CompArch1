@@ -73,25 +73,27 @@ struct node *addNode(struct node *head, int newData) {
 	struct node *insert;
 	//insert->next = NULL;
 	//insert->data = newData;
-	printf("Mattress 0\n");
+	
 	// if there is no list at first, ie if head is NULL
 	if (head==NULL) {
+		printf("Empty List, insert %d at Empty\n", newData);
 		return insert;
 	}
-	printf("Mattress 1\n");
 	// if the new node should go at the beginning
 	if (newData < temp->data) {
+		printf("\n");
 		insert->next = temp;
+		printf("Insert %d at Empty\n", newData);
 		return insert;
 	} else if (newData == temp->data) {
+		printf("Duplicate, not inserted\n");
 		return head;
 	}
 	
-	printf("Mattress 2\n");
 	// if the new node should go anywhere else or is a duplicate
 	struct node *temp2 = head;
-	while (!temp) {
-		printf("Mattress 3\n");
+	while (temp != NULL) {
+		printf("traverse %d\t", temp->data);
 		temp2 = temp;
 		temp = temp->next;
 		if (temp==NULL) {
@@ -105,10 +107,11 @@ struct node *addNode(struct node *head, int newData) {
 			return head;
 		}
 	}
-	printf("Mattress 4\n");
+	
 	//check the data of temp2 when it is on the last node
 	if (temp2->data < newData) {
 		temp2->next = insert;
+		printf("Insert %d at\n", newData);
 		// insert->next is still NULL
 	}
 	
