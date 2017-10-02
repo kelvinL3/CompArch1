@@ -95,7 +95,7 @@ int main(int argc, char **argv) {
 				printf("absent\n");
 			}
 		} else if (instruction == 'd') {
-			root = deleteFromTree(root, data);
+			root = helperDelete(root, data);
 		}
 	}
 	
