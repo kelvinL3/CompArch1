@@ -39,10 +39,10 @@ int main(int argc, char **argv) {
 	}
 	
 	
-	printMatrix(baseArray);
+	/*printMatrix(baseArray);
 	printf("first above\n");
 	printMatrix(array);
-	printf("second above\n\n\n");
+	printf("second above\n\n\n");*/
 	
 //multiply the matrix size times
 	int times;
@@ -55,20 +55,17 @@ int main(int argc, char **argv) {
 		times--;
 	}
 	
-	printf("Flag 4\n");
 //print out the matrix with no extra white space and no extra newline at end
 
 	printMatrix(baseArray);
 	
 	
-	printf("Flag 5\n");
 //free all our malloced arrays
 	for (i=0; i<size; i++) {
 		printf("free i=%d\n",i);
 		free(array[i]);
 		free(baseArray[i]);
 	}
-	printf("Flag 6\n");
 	free(array);
 	free(baseArray);
 	return 0;
