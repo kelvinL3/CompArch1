@@ -68,6 +68,7 @@ int main(int argc, char **argv) {
 	}
 	
 	lengthOfList(head);
+	freeList(head);
 }
 
 struct node *addNode(struct node *head, int newData) {
@@ -76,13 +77,13 @@ struct node *addNode(struct node *head, int newData) {
 	struct node *insert = (struct node *) malloc(sizeof(struct node));
 	insert->next = NULL;
 	insert->data = newData;
-	printf("ccc", newData);
+	//printf("ccc", newData);
 	// if there is no list at first, ie if head is NULL
 	if (head==NULL) {
 		printf("Empty List, insert %d at Empty\n", newData);
 		return insert;
 	}
-	printf("ddd", newData);
+	//printf("ddd", newData);
 	// if the new node should go at the beginning
 	if (newData < temp->data) {
 		printf("\n");
@@ -93,11 +94,11 @@ struct node *addNode(struct node *head, int newData) {
 		printf("Duplicate, not inserted\n");
 		return head;
 	}
-	printf("aaa", newData);
+	//printf("aaa", newData);
 	// if the new node should go anywhere else or is a duplicate
 	struct node *temp2 = head;
 	while (temp != NULL) {
-		printf("traverse %d\t", temp->data);
+		printf("traverse %d   ", temp->data);
 		temp2 = temp;
 		temp = temp->next;
 		if (temp==NULL) {
@@ -113,7 +114,7 @@ struct node *addNode(struct node *head, int newData) {
 			return head;
 		}
 	}
-	printf("bbb", newData);
+	//printf("bbb", newData);
 	//check the data of temp2 when it is on the last node
 	if (temp2->data < newData) {
 		temp2->next = insert;
@@ -160,4 +161,11 @@ void printList(struct node *head){
 		printf("%d\t", head->data);
 		head = head->next;
 	}
+}
+
+void freeList(struct node *head) {
+	while(head->next != NULL){
+		freeList(head->next);
+	}
+	free(head);
 }
