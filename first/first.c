@@ -66,7 +66,6 @@ int main(int argc, char **argv) {
 		printf("%d", head->data);
 	}
 	
-	lengthOfList(head);
 	freeList(head);
 }
 
@@ -174,6 +173,9 @@ void printList(struct node *head){
 }
 
 void freeList(struct node *head) {
+	if (head == NULL) {
+		return;
+	}
 	while(head->next != NULL){
 		freeList(head->next);
 	}
