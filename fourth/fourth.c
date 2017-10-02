@@ -42,8 +42,9 @@ int main(int argc, char **argv) {
 //multiply the matrix size times
 	int times;
 	fscanf(f, " %d", &times);
-	printf("times: \n", times);
+	printf("times: %d \n", times);
 	while (times>0) {
+		printf("again");
 		//baseArray increases every time
 		multiply(baseArray, array);
 		times--;
