@@ -1,30 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <unistd.h>
+#include "ninth.h"
 
 int main(int argc, char **argv) {
 	
-	//argv is first input, filename?
 	
-//setting up the binary tree root
+	//file check
+	if(access(argv[1], F_OK )==-1) {
+		printf("error");
+		exit(0);
+	}
+	
+	FILE *f;
+	f = fopen(argv[1], "r");
+
 	struct node *root = NULL;
-	
 	int i;
+
 //variables for reading in
-	char action;
-	int data;
-//argv[0] is the file name?
-	fscanf(argv[0], "%c\t", &action); //takes in first character
-	while (fscanf(argv[0], " %d\n", &data) != EOF) { //takes in the space and the int 
-		//do stuff
+	char instruction;
+	int data;	
+	while (fscanf(f, " %c", &instruction)!=EOF) { //takes in the space and the int 
+		fscanf(f, " %d", &data);
+		//data is now read in
 		
-		if (action == 'i') { //insert
+		if (instruction == 'i') { //insert
 			if (root==NULL) {
 				root = (struct node *)malloc(sizeof(struct node));
 				root->leftChild = NULL;
 				root->rightChild = NULL;
 				root->data = data;
+				printf("inserted\n");
 				continue;
 				//skip to next instruction
 			}
@@ -41,6 +49,7 @@ int main(int argc, char **argv) {
 					ptr = ptr->leftChild;
 					direction = -1;
 				} else {
+					printf("duplicate\n");
 					break; //duplicate value //if code reaches here, then ptr is not NULL so the following if statement will not run
 				}
 			}
@@ -50,14 +59,16 @@ int main(int argc, char **argv) {
 				ptr->rightChild = NULL;
 				ptr->data = data;
 				if (direction == -1) {
+					printf("inserted\n");
 					prev->leftChild = ptr;
 				} else if (direction = 1) {
+					printf("inserted\n");
 					prev->rightChild = ptr;					
 				} else { //direction == 0
-					
+					printf("ERROR WHY AM I HERE\n");
 				}
 			}
-		} else if (action == 's') { //search
+		} else if (instruction == 's') { //search
 			struct node *ptr = root;
 			int found = 0;
 			while (ptr!=NULL) {
@@ -74,18 +85,14 @@ int main(int argc, char **argv) {
 			if (found == 0) {
 				printf("absent");
 			}
-		} else if (action == 'd') {
+		} else if (instruction == 'd') {
 			
 		}
-		
-		//end do stuff
-		fscanf(argv[0], "%c\t", &action);
+		printf("%d \n", calcHeight(root, data));
 	}
 	
-	
-	
-	//recursively free the nodes with POSTORDER transversal
-	return 1;
+	freeTree(root);
+	return 0;
 }
 
 
@@ -140,4 +147,30 @@ struct node *deleteFromTree(struct node *root, int query) {
 	}
 	printf("Why am I getting here???\n");
 	return NULL;
+}
+
+int calcHeight(struct node *head, int query) {
+	// assume the query is in the tree
+	int height=1;
+	while (head->data != query) {
+		if (head->data > query) {
+			head = head->leftChild;
+		} else {
+			head = head->rightChild;
+		}
+		height++;
+	}
+	return height;
+}
+
+void freeTree(struct node *head) {
+	if (head==NULL) {
+		return;
+	}
+	if (head->leftChild==NULL && head->rightChild==NULL) {
+		free(head);
+		return;
+	}
+	freeTree(head->leftChild);
+	freeTree(head->rightChild);
 }

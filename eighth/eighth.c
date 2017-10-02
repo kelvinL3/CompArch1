@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
 		} else if (instruction == 'd') {
 			
 		}
-		calcHeight(root, data);
+		printf("%d \n", calcHeight(root, data));
 	}
 	
 	freeTree(root);
