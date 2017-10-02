@@ -22,16 +22,18 @@ int main(int argc, char **argv) {
 	int **baseArray = (int **)malloc(sizeof(int *) * size);
 	int i;
 	for (i=0; i<size; i++) {
-		int *array = (int *) malloc(sizeof(int) * size);
-		int *baseArray = (int *) malloc(sizeof(int) * size);
+		int *temp1 = (int *) malloc(sizeof(int) * size);
+		int *temp2 = (int *) malloc(sizeof(int) * size);
+		array[i] = temp1;
+		baseArray[i] = temp2;
 	}
 	
-	printf("Flag 2\n\n");
+	printf("Flag 2\n");
 	//reading file into array
 	int j;
 	for (i=0; i<size; i++) {
 		for (j=0; j<size; j++) {
-			printf("try scan\n\n");
+			printf("try scan\n");
 			fscanf(f, " %d", &array[i][j]); //read into array
 			printf("scanned: %d\n",array[i][j]);
 			/*if (j<size-1) {
