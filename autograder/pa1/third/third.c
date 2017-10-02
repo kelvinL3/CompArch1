@@ -53,6 +53,7 @@ int main(int argc, char **argv) {
 	// inserted vs duplicate // present vs absent
 	
 	freeHashTable(array);
+	return 0;
 }
 
 int hash(int query, int size){
