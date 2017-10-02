@@ -15,7 +15,6 @@ int main(int argc, char **argv) {
 	
 	FILE *f;
 	f = fopen(argv[1], "r");
-	fscanf(f, "%d\n", &size); //copy size over
 
 	struct node *root = NULL;
 	int i;
@@ -24,7 +23,8 @@ int main(int argc, char **argv) {
 	char instruction;
 	int data;	
 	while (fscanf(f, " %c", &instruction)!=EOF) { //takes in the space and the int 
-		fscanf(f, " %d", &data)
+		fscanf(f, " %d", &data);
+		//data is now read in
 		
 		if (action == 'i') { //insert
 			if (root==NULL) {
@@ -88,12 +88,11 @@ int main(int argc, char **argv) {
 		} else if (action == 'd') {
 			
 		}
+		calcHeight(root,data);
 	}
 	
-	
-	
-	//recursively free the nodes with POSTORDER transversal
-	return 1;
+	freeTree(root);
+	return 0;
 }
 
 
@@ -150,6 +149,28 @@ struct node *deleteFromTree(struct node *root, int query) {
 	return NULL;
 }
 
-void freeTree() {
-	
+int calcHeight(struct node *head, int query) {
+	// assume the query is in the tree
+	int height=1;
+	while (head->data != query) {
+		if (head->data > query) {
+			head = head->leftChild;
+		} else {
+			head = head->rightChild;
+		}
+		height++;
+	}
+	return height;
+}
+
+void freeTree(struct node *head) {
+	if (head==NULL) {
+		return;
+	}
+	if (head->leftChild==NULL && head->rightChild==NULL) {
+		free(head);
+		return;
+	}
+	freeTree(head->leftChild);
+	freeTree(head->rightChild);
 }
