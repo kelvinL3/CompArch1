@@ -5,19 +5,25 @@
 
 int main(int argc, char **argv) {
 	
-	//argv is first input, filename?
 	
-//setting up the binary tree root
+	//file check
+	if(access(argv[1], F_OK )==-1) {
+		printf("error");
+		exit(0);
+	}
+	
+	FILE *f;
+	f = fopen(argv[1], "r");
+	fscanf(f, "%d\n", &size); //copy size over
+
 	struct node *root = NULL;
-	
 	int i;
+
 //variables for reading in
-	char action;
-	int data;
-//argv[0] is the file name?
-	fscanf(argv[0], "%c\t", &action); //takes in first character
-	while (fscanf(argv[0], " %d\n", &data) != EOF) { //takes in the space and the int 
-		//do stuff
+	char instruction;
+	int data;	
+	while (fscanf(f, " %c", &instruction)!=EOF) { //takes in the space and the int 
+		fscanf(f, " %d", &data)
 		
 		if (action == 'i') { //insert
 			if (root==NULL) {
@@ -25,6 +31,7 @@ int main(int argc, char **argv) {
 				root->leftChild = NULL;
 				root->rightChild = NULL;
 				root->data = data;
+				printf("inserted\n");
 				continue;
 				//skip to next instruction
 			}
@@ -41,6 +48,7 @@ int main(int argc, char **argv) {
 					ptr = ptr->leftChild;
 					direction = -1;
 				} else {
+					printf("duplicate\n");
 					break; //duplicate value //if code reaches here, then ptr is not NULL so the following if statement will not run
 				}
 			}
@@ -50,11 +58,13 @@ int main(int argc, char **argv) {
 				ptr->rightChild = NULL;
 				ptr->data = data;
 				if (direction == -1) {
+					printf("inserted\n");
 					prev->leftChild = ptr;
 				} else if (direction = 1) {
+					printf("inserted\n");
 					prev->rightChild = ptr;					
 				} else { //direction == 0
-					
+					printf("ERROR WHY AM I HERE\n");
 				}
 			}
 		} else if (action == 's') { //search
@@ -77,9 +87,6 @@ int main(int argc, char **argv) {
 		} else if (action == 'd') {
 			
 		}
-		
-		//end do stuff
-		fscanf(argv[0], "%c\t", &action);
 	}
 	
 	
@@ -140,4 +147,8 @@ struct node *deleteFromTree(struct node *root, int query) {
 	}
 	printf("Why am I getting here???\n");
 	return NULL;
+}
+
+void freeTree() {
+	
 }
