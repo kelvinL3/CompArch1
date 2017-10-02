@@ -106,7 +106,7 @@ int search(struct node **array, int position, int query){
 	return -1;
 }
 
-void freeHashTable(struct node **array, int bucketNumber){
+void freeHashTable(struct node **array){
 	int i;
 	for (i=0; i<bucketNumber; i++) {
 		freeList(array[i]);
