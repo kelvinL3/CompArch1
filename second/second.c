@@ -10,7 +10,7 @@ int main(int argc, char **argv) {
 		printf("error");
 		exit(0);
 	}
-	
+	printf("HAHAHA\n");
 	FILE *f;
 	f = fopen(argv[1], "r");
 	
