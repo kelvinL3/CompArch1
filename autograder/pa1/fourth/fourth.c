@@ -95,7 +95,7 @@ int ** multiply(int **baseArray, int **array) {
 }
 
 int dot(int **baseArray, int **array, int rowNumber, int colNumber){
-	int i; int j;
+	int i;
 	int temp=0;
 	for (i=0; i<size; i++) {
 		temp = temp + ((baseArray[rowNumber][i])*(array[i][colNumber]));
