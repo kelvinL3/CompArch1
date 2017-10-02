@@ -31,9 +31,9 @@ int main(int argc, char **argv) {
 		}
 	}
 	
-	printf("\n");
-	printMatrix(array);
-	printf("\n");
+	//printf("\n");
+	//printMatrix(array);
+	//printf("\n");
 	
 	
 //sum up the top row, use that as comparison
@@ -44,11 +44,11 @@ int main(int argc, char **argv) {
 	if (checkDifferent(array)!=1) {
 		printf("not-magic");
 	} else if (checkHorizontalSum(array, total)!=1) {
-		printf("2not-magic");
+		printf("not-magic");
 	} else if (checkVerticalSum(array, total)!=1) {
-		printf("3not-magic");
+		printf("not-magic");
 	} else if (checkDiagonalSum(array, total)!=1) {
-		printf("4not-magic");
+		printf("not-magic");
 	} else {	
 		printf("magic");
 	}

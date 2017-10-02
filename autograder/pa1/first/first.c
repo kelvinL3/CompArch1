@@ -6,7 +6,6 @@
 
 
 int main(int argc, char **argv) {
-	//printf("argv[1]==%s\n", argv[1]);
 	//check if file exists
 	if(access(argv[1], F_OK )==-1) {
 		printf("error");
@@ -24,21 +23,21 @@ int main(int argc, char **argv) {
 	int package = NULL;
 	while (fscanf(f, " %c", &instruction)!=EOF){
 		fscanf(f, " %d", &package);
-		printf("i, #  %c %d\n", instruction, package);
+		//printf("i, #  %c %d\n", instruction, package);
 		if (instruction == 'i') {
-			printf("INSERT\n");
+			//printf("INSERT\n");
 			head = addNode(head, package);
-			printList(head);
+			//printList(head);
 		} else if (instruction == 'd') {
-			printf("DELETE\n");
+			//printf("DELETE\n");
 			head = removeNode(head, package);
-			printList(head);
+			//printList(head);
 		}
 	}
 	
 	
 	
-	printf("THE DIVIDE\n");
+	//printf("THE DIVIDE\n");
 	/*
 	
 	std in
@@ -78,37 +77,37 @@ struct node *addNode(struct node *head, int newData) {
 	//printf("ccc", newData);
 	// if there is no list at first, ie if head is NULL
 	if (head==NULL) {
-		printf("Empty List, insert %d at Empty\n", newData);
+		//printf("Empty List, insert %d at Empty\n", newData);
 		return insert;
 	}
 	//printf("ddd", newData);
 	// if the new node should go at the beginning
 	if (newData < temp->data) {
-		printf("\n");
+		//printf("\n");
 		insert->next = temp;
-		printf("Insert %d at Empty\n", newData);
+		//printf("Insert %d at Empty\n", newData);
 		return insert;
 	} else if (newData == temp->data) {
-		printf("Duplicate, not inserted\n");
+		//printf("Duplicate, not inserted\n");
 		return head;
 	}
 	//printf("aaa", newData);
 	// if the new node should go anywhere else or is a duplicate
 	struct node *temp2 = head;
 	while (temp != NULL) {
-		printf("traverse %d   ", temp->data);
+		//printf("traverse %d   ", temp->data);
 		temp2 = temp;
 		temp = temp->next;
 		if (temp==NULL) {
 			break;
 		}
 		if (newData < temp->data) {
-			printf("Insert %d at\n", newData);
+			//printf("Insert %d at\n", newData);
 			temp2->next = insert;
 			insert->next = temp;
 			return head;
 		} else if (temp->data == newData) {
-			printf("Duplicate, not inserted\n");
+			//printf("Duplicate, not inserted\n");
 			return head;
 		}
 	}
@@ -116,7 +115,7 @@ struct node *addNode(struct node *head, int newData) {
 	//check the data of temp2 when it is on the last node
 	if (temp2->data < newData) {
 		temp2->next = insert;
-		printf("Insert %d at\n", newData);
+		//printf("Insert %d at\n", newData);
 		// insert->next is still NULL
 	}
 	
@@ -137,7 +136,7 @@ struct node *removeNode(struct node *head, int deleteData) {
 		return ptr2; //return NULL
 	}
 	while (ptr2 != NULL) {
-		printf("Pillow 2\n");
+		//printf("Pillow 2\n");
 		if (ptr2->data == deleteData) {
 			ptr1->next = ptr2->next;
 			free(ptr2);
@@ -146,7 +145,7 @@ struct node *removeNode(struct node *head, int deleteData) {
 		ptr1 = ptr1 -> next;
 		ptr2 = ptr2 -> next;
 	}
-	printf("Node to be deleted NOT FOUND\n");
+	//printf("Node to be deleted NOT FOUND\n");
 	return head;
 }
 
