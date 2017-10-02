@@ -13,7 +13,7 @@ struct node {
 int hash(int query, int size);
 
 //go to position in array, go down linked list until end
-int insert(struct node **array, int position);
+int insert(struct node **array, int position, int insertValue);
 
 //go to position, search through linked list until finding query
 int search(struct node **array, int position, int query);
