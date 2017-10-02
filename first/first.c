@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include "first.h"
 
 
 int main(int argc, char **argv) {
@@ -21,7 +22,7 @@ int main(int argc, char **argv) {
 	char instruction = NULL ;
 	int package = NULL;
 	while (fscanf(f, "%c", &instruction)!=EOF){
-		fscanf(f, " %d", &package)
+		fscanf(f, " %d", &package);
 		if (instruction == 'i') {
 			head = addNode(head, data);
 		} else if (instruction == 'd') {
@@ -31,12 +32,17 @@ int main(int argc, char **argv) {
 	
 	
 	
-	//std in
-	//argc, argv
-	//argv is a line
-			
-	//
-	//fscanf(filename, "%d\t", address) \t means \t is the delimiter
+	/*
+	
+	std in
+	argc, argv
+	argv is a line
+	FILE *f;
+	f = fopen(argv[1], "r");	
+	
+	fscanf(file pointer, "%d\t", address) \t means \t is the delimiter
+	
+	*/
 	
 	int i = lengthOfList(head);
 	
@@ -45,7 +51,7 @@ int main(int argc, char **argv) {
 		return 1;
 	} else { 
 		printf("%d\n",i);
-		while (i>0){
+		while (i>1){
 			printf("%d\t", head->data);
 			head = head->next;
 			i--;
