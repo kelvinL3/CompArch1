@@ -32,8 +32,8 @@ int main(int argc, char **argv) {
 	for (i=0; i<strlen(compressed); i++) { //looping on the char to be compressed
 		toCompress = compressed[i];
 		printf("compress: %c\n", toCompress);
-		for (j=i+1; j<size; j++) { //find where the char changes
-			if (compressed[j]!=toCompress) {
+		for (j=i+1; j<strlen(compressed)+1; j++) { //find where the char changes
+			if (j==strlen(compressed)+1 || compressed[j]!=toCompress) { //what happens when != is not the condition
 				//reached end of same character sequence
 				//replace compressed[i,j-1]
 				
@@ -60,17 +60,16 @@ int main(int argc, char **argv) {
 					//add the null terminator after where i+2 stopped
 			}
 		}
+		/*freq = j-i;
+		if (freq == 1) {
+			compressed = growString(compressed, i);
+		} else if (freq == 2) { //there are two same characters at the end
+			compressed[i+1] = '2';
+		} else if (freq >= 3) {
+			compressed = cutOutFromString(compressed, i, j-1);
+		}
+		i++;*/
 	}
-	freq = j-i;
-	if (freq == 1) {
-		compressed = growString(compressed, i);
-	} else if (freq == 2) { //there are two same characters at the end
-		compressed[i+1] = '2';
-	} else if (freq >= 3) {
-		compressed = cutOutFromString(compressed, i, j-1);
-	}
-	i++;
-	
 	
 	
 	
