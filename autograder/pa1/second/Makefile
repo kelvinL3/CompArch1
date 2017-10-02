@@ -1,7 +1,8 @@
-all: second
-
-second: second.c
-	gcc -Wall -Werror -fsanitize=address second.c -o second
+all:
+	gcc second.c -o second
 
 clean:
-	rm -rf second
+	rm ./second
+
+debug:
+	gcc second.c -Wall -Werror -fsanitize=address -g
