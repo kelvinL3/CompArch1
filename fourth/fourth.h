@@ -1,3 +1,6 @@
+//globals
+int size;
+
 
 //fun-ctions
 void multiply(int **baseArray, int **array, int size);
