@@ -37,15 +37,15 @@ int main(int argc, char **argv) {
 		total = total + array[i][0];
 	}
 	if (checkDifferent(array, size)!=1) {
-		printf("not-magic");
+		printf("1not-magic");
 	} else if (checkHorizontalSum(array, total, size)!=1) {
-		printf("not-magic");
+		printf("2not-magic");
 	} else if (checkVerticalSum(array, total, size)!=1) {
-		printf("not-magic");
+		printf("3not-magic");
 	} else if (checkDiagonalSum(array, total, size)!=1) {
-		printf("not-magic");
+		printf("4not-magic");
 	} else {	
-		printf("magic");
+		printf("5magic");
 	}
 	
 	
@@ -53,6 +53,7 @@ int main(int argc, char **argv) {
 		free(array[i]);
 	}
 	free(array);
+	return 0;
 }
 
 int checkDifferent(int **array, int size) {
