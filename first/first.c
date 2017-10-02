@@ -76,12 +76,13 @@ struct node *addNode(struct node *head, int newData) {
 	struct node *insert;
 	insert->next = NULL;
 	insert->data = newData;
-	
+	printf("ccc", newData);
 	// if there is no list at first, ie if head is NULL
 	if (head==NULL) {
 		printf("Empty List, insert %d at Empty\n", newData);
 		return insert;
 	}
+	printf("ddd", newData);
 	// if the new node should go at the beginning
 	if (newData < temp->data) {
 		printf("\n");
