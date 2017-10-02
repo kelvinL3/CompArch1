@@ -12,27 +12,31 @@ int main(int argc, char **argv) {
 		printf("error");
 		exit(0);
 	}
-
-	//std in
-	//argc, argv
-	//argv is a line
-			
-	//
-	//fscanf(filename, "%d\t", address) \t means \t is the delimiter
 	
+	FILE *f;
+	f = fopen(argv[1], "r");
 	struct node *head =NULL;
 	//head->next = NULL;
 	//head->data = NULL;
 	char instruction = NULL ;
 	int package = NULL;
-	while (fscanf(argv[1], "%c", &instruction)!=EOF){
-		fscanf(argv[1], " %d", &package)
+	while (fscanf(f, "%c", &instruction)!=EOF){
+		fscanf(f, " %d", &package)
 		if (instruction == 'i') {
 			head = addNode(head, data);
 		} else if (instruction == 'd') {
 			head = removeNode(head, data);
 		}
 	}
+	
+	
+	
+	//std in
+	//argc, argv
+	//argv is a line
+			
+	//
+	//fscanf(filename, "%d\t", address) \t means \t is the delimiter
 	
 	int i = lengthOfList(head);
 	
