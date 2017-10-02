@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 	int package = NULL;
 	while (fscanf(f, " %c", &instruction)!=EOF){
 		fscanf(f, " %d", &package);
-		printf("i, #  %c %d\n", instruction, package);
+		//printf("i, #  %c %d\n", instruction, package);
 		
 		/*struct node *entry = (struct node *)malloc(sizeof(struct node));
 		entry->next = NULL;
