@@ -6,13 +6,14 @@
 
 
 int main(int argc, char **argv) {
-	printf("CHEKCME\n");
-	printf("argv[2]==%s\n", argv[2]);
+	printf("argv[1]==%s\n", argv[1]);
 	//check if file exists
 	if(access(argv[1], F_OK )==-1) {
 		printf("error");
 		exit(0);
 	}
+	
+	printf("Flag 1\n");
 	
 	FILE *f;
 	f = fopen(argv[1], "r");
@@ -22,16 +23,20 @@ int main(int argc, char **argv) {
 	char instruction = NULL ;
 	int package = NULL;
 	while (fscanf(f, "%c", &instruction)!=EOF){
+		printf("Flag 2\n");
 		fscanf(f, " %d", &package);
 		if (instruction == 'i') {
 			head = addNode(head, package);
+			printf("INSERT\n");
 		} else if (instruction == 'd') {
 			head = removeNode(head, package);
+			printf("DELETE\n");
 		}
 	}
 	
 	
 	
+	printf("THE DIVIDE\n");
 	/*
 	
 	std in
