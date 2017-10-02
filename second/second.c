@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "second.h"
 
 
 int main(int argc, char **argv) {
@@ -50,4 +51,5 @@ void sort(int *array, int size){
 		array[i] = lowestRightNow;
 		array[j] = temp;
 	}
+	return;
 }
