@@ -45,6 +45,7 @@ void sort(int *array, int size){
 	for (i=0; i<size; i++) {
 		int indexOfLowest;
 		int lowestRightNow = array[i];
+		int j;
 		for (j=i+1; j<size; j++){
 			if (array[j]<lowestRightNow) {
 				lowestRightNow = array[j];
