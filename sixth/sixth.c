@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
 					}
 					printf("%s\n", compressed);
 					i++;
-					
+					break;
 					//compressed[i+1] = (char) freq;
 					
 					//keep on copying data from (j->i+2) until j hits the upper bound
