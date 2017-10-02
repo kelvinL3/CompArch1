@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
 		}
 		printf("%d", head->data);
 	}
-	
+	printf("Error1????\n");
 	lengthOfList(head);
 	freeList(head);
 }
@@ -156,6 +156,10 @@ int lengthOfList(struct node *head){
 }
 
 void printList(struct node *head){
+	if (head != NULL) {
+		printf("Empty List\n");
+		return;
+	}
 	while(head != NULL){
 		printf("%d\t", head->data);
 		head = head->next;
