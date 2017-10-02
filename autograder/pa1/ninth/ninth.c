@@ -182,7 +182,10 @@ int calcHeight(struct node *head, int query) {
 			break; //out of this while loop
 		}
 	}
-	
+	return calcHelper(ptr, query);
+}
+
+calcHelper(struct node *ptr, int query) {
 	// assume ptr is pointing at the node
 	if (ptr == NULL) {
 		return 0;
