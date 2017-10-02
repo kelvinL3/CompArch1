@@ -40,9 +40,9 @@ int main(int argc, char **argv) {
 	
 	
 	printMatrix(baseArray);
-	printf("\n");
+	printf("first above\n");
 	printMatrix(array);
-	printf("\n\n\n");
+	printf("second above\n\n\n");
 	
 //multiply the matrix size times
 	int times;
