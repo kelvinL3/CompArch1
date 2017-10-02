@@ -1,7 +1,11 @@
-all: first
-
-first: first.c
-	gcc -Wall -Werror -fsanitize=address first.c -o first
+all:
+	gcc first.c -o first
 
 clean:
-	rm -rf first
+	rm ./first
+
+run:
+	./first test.txt
+
+debug:
+	gcc first.c -Wall -Werror -fsanitize=address -g 
