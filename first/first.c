@@ -5,6 +5,7 @@
 
 
 int main(int argc, char **argv) {
+	printf("CHEKCME\n");
 	printf("argv[2]==%s\n", argv[2]);
 	//check if file exists
 	if(access(argv[1], F_OK )==-1) {
