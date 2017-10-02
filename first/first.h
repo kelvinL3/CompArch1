@@ -17,3 +17,5 @@ struct node *removeNode(struct node *head, int deleteData);
 
 //traverses the list to find the length
 int lengthOfList(struct node *head);
+
+void printList(struct node *head);
