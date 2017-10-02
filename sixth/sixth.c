@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 					freq = j-i;
 					printf("Before: %s\n", compressed);
 					if (freq == 1) {
-						printf("option1\n");
+						printf("option1, i %d\n", i);
 						//the string GROWS in this case, keep the letter and add 1
 						compressed = growString(compressed, i);
 					} else if (freq == 2) {
@@ -109,8 +109,8 @@ char *growString(char *str, int index) { //index is the index of the singleton c
 		temp[i] = str[i];
 	}
 	temp[index+1] = (char)1;
-	for (i=index+1; i<size; i++) {
-		temp[i+1] = str[i];
+	for (i=index+2; i<size; i++) {
+		temp[i] = str[i-1];
 	}
 	free(str);
 	return temp;
