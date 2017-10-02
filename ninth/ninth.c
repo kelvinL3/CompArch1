@@ -65,13 +65,13 @@ int main(int argc, char **argv) {
 				if (direction == -1) {
 					printf("4\n");
 					printf("inserted");
-					printf(" %d\n", calcHeight(root, data));
 					prev->leftChild = ptr;
+					printf(" %d\n", calcHeight(root, data));
 				} else if (direction = 1) {
 					printf("5\n");
 					printf("inserted");
-					printf(" %d\n", calcHeight(root, data));
 					prev->rightChild = ptr;					
+					printf(" %d\n", calcHeight(root, data));
 				} else { //direction == 0
 					printf("6\n");
 					printf("ERROR WHY AM I HERE\n");
