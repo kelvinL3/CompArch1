@@ -31,6 +31,11 @@ int main(int argc, char **argv) {
 		}
 	}
 	
+	printf("\n");
+	printMatrix(array);
+	printf("\n");
+	
+	
 //sum up the top row, use that as comparison
 	int total = 0;
 	for (i=0; i<size; i++) {
