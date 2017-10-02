@@ -28,9 +28,11 @@ int main(int argc, char **argv) {
 		if (instruction == 'i') {
 			printf("INSERT\n");
 			head = addNode(head, package);
+			printList(head);
 		} else if (instruction == 'd') {
 			printf("DELETE\n");
 			head = removeNode(head, package);
+			printList(head);
 		}
 	}
 	
@@ -89,7 +91,7 @@ struct node *addNode(struct node *head, int newData) {
 		printf("Duplicate, not inserted\n");
 		return head;
 	}
-	
+	printf("aaa", newData);
 	// if the new node should go anywhere else or is a duplicate
 	struct node *temp2 = head;
 	while (temp != NULL) {
@@ -109,7 +111,7 @@ struct node *addNode(struct node *head, int newData) {
 			return head;
 		}
 	}
-	
+	printf("bbb", newData);
 	//check the data of temp2 when it is on the last node
 	if (temp2->data < newData) {
 		temp2->next = insert;
@@ -149,4 +151,11 @@ int lengthOfList(struct node *head){
 		i++;
 	}
 	return i;
+}
+
+void printList(struct node *head){
+	while(head != NULL){
+		printf("%d\t", head->data);
+		head = head->next;
+	}
 }
