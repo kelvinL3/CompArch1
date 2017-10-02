@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
 		fscanf(f, " %d", &data);
 		//data is now read in
 		
-		if (action == 'i') { //insert
+		if (instruction == 'i') { //insert
 			if (root==NULL) {
 				root = (struct node *)malloc(sizeof(struct node));
 				root->leftChild = NULL;
@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
 					printf("ERROR WHY AM I HERE\n");
 				}
 			}
-		} else if (action == 's') { //search
+		} else if (instruction == 's') { //search
 			struct node *ptr = root;
 			int found = 0;
 			while (ptr!=NULL) {
@@ -85,10 +85,10 @@ int main(int argc, char **argv) {
 			if (found == 0) {
 				printf("absent");
 			}
-		} else if (action == 'd') {
+		} else if (instruction == 'd') {
 			
 		}
-		calcHeight(root,data);
+		calcHeight(root, data);
 	}
 	
 	freeTree(root);
