@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
 	for (i=0; i<size; i++) {
 		for (j=0; j<size; j++) {
 			fscanf(f, " %d", &array[i][j]); //read into array
-			printf("scanned: %d\n",array[i][j]);
+			//printf("scanned: %d\n",array[i][j]);
 			baseArray[i][j] = array[i][j]; //copy over into baseArray
 		}
 	}
@@ -47,9 +47,9 @@ int main(int argc, char **argv) {
 //multiply the matrix size times
 	int times;
 	fscanf(f, " %d", &times);
-	printf("times: %d \n", times);
+	//printf("times: %d \n", times);
 	while (times>1) {
-		printf("again\n");
+		//printf("again\n");
 		//baseArray increases every time
 		baseArray = multiply(baseArray, array);
 		times--;
@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
 	
 //free all our malloced arrays
 	for (i=0; i<size; i++) {
-		printf("free i=%d\n",i);
+		//printf("free i=%d\n",i);
 		free(array[i]);
 		free(baseArray[i]);
 	}
