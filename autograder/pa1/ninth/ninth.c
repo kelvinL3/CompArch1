@@ -184,11 +184,11 @@ int calcHeight(struct node *head, int query) {
 	}
 	
 	// assume ptr is pointing at the node
-	if (head == NULL) {
+	if (ptr == NULL) {
 		return 0;
 	}
-	int a = 1 + calcHeight(head->leftChild, query);
-	int b = 1 + calcHeight(head->rightChild, query);
+	int a = 1 + calcHeight(ptr->leftChild, query);
+	int b = 1 + calcHeight(ptr->rightChild, query);
 	if (b>a) {
 		return b;
 	} else {
