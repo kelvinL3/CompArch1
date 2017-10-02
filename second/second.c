@@ -42,10 +42,10 @@ int main(int argc, char **argv) {
 
 void sort(int *array, int size){
 	int i=0;
+	int j=1;
 	for (i=0; i<size; i++) {
-		int indexOfLowest;
 		int lowestRightNow = array[i];
-		int j;
+		int indexOfLowest = i;
 		for (j=i+1; j<size; j++){
 			if (array[j]<lowestRightNow) {
 				lowestRightNow = array[j];
