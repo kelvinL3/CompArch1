@@ -6,7 +6,7 @@
 
 
 int main(int argc, char **argv) {
-	printf("argv[1]==%s\n", argv[1]);
+	//printf("argv[1]==%s\n", argv[1]);
 	//check if file exists
 	if(access(argv[1], F_OK )==-1) {
 		printf("error");
@@ -65,9 +65,7 @@ int main(int argc, char **argv) {
 		}
 		printf("%d", head->data);
 	}
-	printf("WHY ERROR?\n");
 	freeList(head);
-	printf("because?\n");
 	return 0;
 }
 

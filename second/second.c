@@ -5,27 +5,33 @@
 
 int main(int argc, char **argv) {
 	
-	/*
-	peusdocode
-	int size;
-	scanf("%d", &size);
+	FILE *f;
+	f = fopen(argv[1], "r");
 	
-	int array[size];
+	
+	int size;
+	fscanf(f, " %d", &size);
+	//scanf("%d", &size);
+	
+	int *array = (int *)malloc(sizeof(int)*size);
 	
 	int i;
 	for (i=0; i<size; i++) {
-		scanf("%d", &array[i])
+		fscanf(f, " %d", &array[i]);
+		//scanf(" %d", &array[i])
 	}
 	
+	//sort array
 	sort(array, size);
 	
+	//print out the sorted array
 	for (i=0; i<size-1; i++) {
 		printf("%d\t", array[i]);
 	}
 	printf("%d", array[i]);
 	
-	
-	*/
+	//free array
+	free(array);
 }
 
 void sort(int *array, int size){
@@ -37,7 +43,7 @@ void sort(int *array, int size){
 		for (j=i; j<size; j++){
 			if (array[j]<lowestRightNow) {
 				lowestRightNow = array[j];
-				j = i;
+				indexOfLowest = j;
 			}
 		}
 		int temp = array[i]; 
