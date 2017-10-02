@@ -35,18 +35,13 @@ int main(int argc, char **argv) {
 		for (j=0; j<size; j++) {
 			fscanf(f, " %d", &array[i][j]); //read into array
 			printf("scanned: %d\n",array[i][j]);
-			/*if (j<size-1) {
-				fscanf(f, "\t");
-			}*/
 			baseArray[i][j] = array[i][i]; //copy over into baseArray
 		}
-		/*if (i<size-1) {
-			fscanf(f, "\n");
-		}*/
 	}
+	
 //multiply the matrix size times
 	int times;
-	fscanf(f, "%d", &times);
+	fscanf(f, " %d", &times);
 	printf("times: \n", times);
 	while (times>0) {
 		//baseArray increases every time
