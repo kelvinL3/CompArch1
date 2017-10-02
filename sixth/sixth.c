@@ -15,11 +15,11 @@ int main(int argc, char **argv) {
 	}
 	if (compressed==NULL) {
 		printf("mallocFail!\n");
-		return NULL;
+		exit(0);
 	}
 	
 	//check for only letters, capital and lowercase
-	int check = validString(char *uncompressed);
+	int check = validString(uncompressed);
 	if (check == 1) { //detect a non letter
 		printf("error");
 		exit(0);
