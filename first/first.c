@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
 		}
 		printf("%d", head->data);
 	}
-	printf("Error1????\n");
+	
 	lengthOfList(head);
 	freeList(head);
 }
