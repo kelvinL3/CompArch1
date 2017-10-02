@@ -74,7 +74,8 @@ void multiply(int **baseArray, int **array) {
 	
 	int **array1 = (int **)malloc(sizeof(int *) * size);
 	for (i=0; i<size; i++) {
-		int *array1 = (int *) malloc(sizeof(int) * size);
+		int *temp = (int *) malloc(sizeof(int) * size);
+		array1[i] = temp;
 	}
 	
 	
