@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <unistd.h>
+#include "seventh.h"
 
 int main(int argc, char **argv) {
 	printf("test to make sure spaces are literally the only delimiter that argv uses to determine indicies\n", );
