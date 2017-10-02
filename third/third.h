@@ -5,7 +5,7 @@ const unsigned int bucketNumber = 10000;
 //structs
 struct node {
 	struct node *next;
-	int data;	
+	int data;
 }
 
 //functions
@@ -18,3 +18,8 @@ int insert(int *array, int position);
 //go to position, search through linked list until finding query
 int search(int *array, int position, int query);
 
+//free the table
+void freeHashTable(struct node **array, int bucketNumber);
+
+//helper function for freeing the table
+void freeList(struct node *head);
