@@ -41,13 +41,13 @@ int main(int argc, char **argv) {
 	for (i=0; i<size; i++) {
 		total = total + array[i][0];
 	}
-	if (checkDifferent(array, size)!=1) {
+	if (checkDifferent(array)!=1) {
 		printf("1not-magic");
-	} else if (checkHorizontalSum(array, total, size)!=1) {
+	} else if (checkHorizontalSum(array, total)!=1) {
 		printf("2not-magic");
-	} else if (checkVerticalSum(array, total, size)!=1) {
+	} else if (checkVerticalSum(array, total)!=1) {
 		printf("3not-magic");
-	} else if (checkDiagonalSum(array, total, size)!=1) {
+	} else if (checkDiagonalSum(array, total)!=1) {
 		printf("4not-magic");
 	} else {	
 		printf("5magic");
@@ -87,7 +87,7 @@ int exists(int **array, int query) {
 	return -1;
 }
 
-int checkHorizontalSum(int **array, int same, int size){
+int checkHorizontalSum(int **array, int same){
 	int i;
 	int j;
 	int total;
@@ -103,7 +103,7 @@ int checkHorizontalSum(int **array, int same, int size){
 	return 1;
 }
 
-int checkVerticalSum(int **array, int same, int size){
+int checkVerticalSum(int **array, int same){
 	int i;
 	int j;
 	int total;
@@ -119,7 +119,7 @@ int checkVerticalSum(int **array, int same, int size){
 	return 1;
 }
 
-int checkDiagonalSum(int **array, int same, int size){
+int checkDiagonalSum(int **array, int same){
 	int i;
 	int total = 0;
 	for (i=0; i<size; i++) {
