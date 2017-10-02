@@ -40,7 +40,7 @@ int main(int argc, char **argv) {
 					//replace from [i, j)
 					//find and put number at i+1
 					freq = j-i;
-					printf("%s\n", compressed);
+					printf("Before: %s\n", compressed);
 					if (freq == 1) {
 						//the string GROWS in this case, keep the letter and add 1
 						compressed = growString(compressed, i);
@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
 						//the string SHRINKS, replace the second letter with the freq, call another function to excise the rest
 						compressed = cutOutFromString(compressed, i, j-1);
 					}
-					printf("%s\n", compressed);
+					printf("After: %s\n", compressed);
 					i++;
 					break;
 					//compressed[i+1] = (char) freq;
