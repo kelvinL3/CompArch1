@@ -92,7 +92,7 @@ int main(int argc, char **argv) {
 				}
 			}
 			if (found == 0) {
-				printf("absent");
+				printf("absent\n");
 			}
 		} else if (instruction == 'd') {
 			root = deleteFromTree(root, data);
