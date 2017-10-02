@@ -14,6 +14,6 @@ struct node *deleteFromTree(struct node *root, int query);
 
 int calcHeight(struct node *head, int query);
 
-int calcHelper(struct node *ptr, int query);
+//int calcHelper(struct node *ptr, int query);
 
 void freeTree(struct node *head);

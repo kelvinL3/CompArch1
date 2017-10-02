@@ -171,32 +171,21 @@ struct node *deleteFromTree(struct node *root, int query) {
 }
 
 int calcHeight(struct node *head, int query) {
-	
-	struct node *ptr = head;
-	while (ptr!=NULL) {
-		if (ptr->data < query) { //go to the right
-			ptr = ptr->rightChild;
-		} else if (ptr->data > query) {
-			ptr = ptr->leftChild;
-		} else { //found the element
-			break; //out of this while loop
-		}
-	}
-	return calcHelper(ptr, query);
-}
-
-int calcHelper(struct node *ptr, int query) {
-	// assume ptr is pointing at the node
-	if (ptr == NULL) {
+	// assume the query is in the tree
+	if (head == NULL) {
 		return 0;
 	}
-	int a = 1 + calcHeight(ptr->leftChild, query);
-	int b = 1 + calcHeight(ptr->rightChild, query);
-	if (b>a) {
-		return b;
-	} else {
-		return a;
+	
+	int height=1;
+	while (head->data != query) {
+		if (head->data > query) {
+			head = head->leftChild;
+		} else {
+			head = head->rightChild;
+		}
+		height++;
 	}
+	return height;
 }
 
 void freeTree(struct node *head) {
