@@ -17,7 +17,8 @@ int main(int argc, char **argv) {
 	
 	FILE *f;
 	f = fopen(argv[1], "r");
-	struct node *head =NULL;
+	
+	struct node *head;// = (struct node *) malloc(sizeof(struct node));
 	//head->next = NULL;
 	//head->data = NULL;
 	char instruction = NULL ;
@@ -71,9 +72,9 @@ struct node *addNode(struct node *head, int newData) {
 	//if *head points to NULL, which equals 0 or false; 
 	struct node *temp = head;
 	struct node *insert;
-	insert->next = NULL;
-	insert->data = newData;
-	
+	//insert->next = NULL;
+	//insert->data = newData;
+	printf("Mattress 0\n");
 	// if there is no list at first, ie if head is NULL
 	if (head==NULL) {
 		return insert;
