@@ -120,7 +120,7 @@ struct node *rightMostNode(struct node *head) {
 }
 
 struct node *helperDelete(struct node *root, int query) {
-	check == 0; //not found yet
+	check = 0; //not found yet
 	struct node *temp =  deleteFromTree(root, query);
 	if (check == 0) { //never found
 		printf("fail\n");
