@@ -98,8 +98,8 @@ struct node *addNode(struct node *head, int newData) {
 			return head;
 		}
 	}
-	//check the value of temp2 when it is on the last node
-	if (temp2->value < newData) {
+	//check the data of temp2 when it is on the last node
+	if (temp2->data < newData) {
 		temp2->next = insert;
 		// insert->next is still NULL
 	}
