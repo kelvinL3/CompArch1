@@ -55,7 +55,7 @@ int main(int argc, char **argv) {
 	
 	if (i==0) {
 		printf("0\n");
-		return 1;
+		return;
 	} else { 
 		printf("%d\n",i);
 		while (i>1){
