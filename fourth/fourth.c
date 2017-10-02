@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
 	f = fopen(argv[1], "r");
 	fscanf(f, "%d\n", &size);
 	
-	printf("Flag 1\n");
+	printf("size is: %d\n",size);
 	//argv is first input, filename?
 	int **array = (int **)malloc(sizeof(int *) * size);
 	int **baseArray = (int **)malloc(sizeof(int *) * size);
@@ -25,11 +25,14 @@ int main(int argc, char **argv) {
 		int *array = (int *) malloc(sizeof(int) * size);
 		int *baseArray = (int *) malloc(sizeof(int) * size);
 	}
+	
 	printf("Flag 2\n");
+	//reading file into array
 	int j;
 	for (i=0; i<size; i++) {
 		for (j=0; j<size; j++) {
 			fscanf(f, "%d", &array[i][j]); //read into array
+			printf("scanned: %d\n",array[i][j]);
 			if (j<size-1) {
 				fscanf(f, "\t");
 			}
