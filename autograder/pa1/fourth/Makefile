@@ -1,11 +1,7 @@
-all:
-	gcc fourth.c -o fourth
+all: fourth
+
+fourth: fourth.c
+	gcc -Wall -Werror -fsanitize=address fourth.c -o fourth
 
 clean:
-	rm ./fourth
-
-run:
-	./fourth test.txt
-
-debug:
-	gcc fourth.c -Wall -Werror -fsanitize=address -g
+	rm -rf fourth

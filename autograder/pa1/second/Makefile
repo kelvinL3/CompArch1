@@ -1,11 +1,7 @@
-all:
-	gcc second.c -o second
+all: second
+
+second: second.c
+	gcc -Wall -Werror -fsanitize=address second.c -o second
 
 clean:
-	rm ./second
-
-run:
-	./second test.txt
-
-debug:
-	gcc first.c -Wall -Werror -fsanitize=address -g
+	rm -rf second

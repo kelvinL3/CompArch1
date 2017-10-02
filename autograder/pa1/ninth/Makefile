@@ -1,11 +1,7 @@
-all:
-	gcc ninth.c -o ninth
+all: ninth
+
+ninth: ninth.c
+	gcc -Wall -Werror -fsanitize=address ninth.c -o ninth
 
 clean:
-	rm ./ninth
-
-run:
-	./ninth test.txt
-
-debug:
-	gcc ninth.c -Wall -Werror -fsanitize=address -g
+	rm -rf ninth

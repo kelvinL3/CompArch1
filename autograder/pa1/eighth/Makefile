@@ -1,11 +1,7 @@
-all:
-	gcc eighth.c -o eighth
+all: eighth
+
+eighth: eighth.c
+	gcc -Wall -Werror -fsanitize=address eighth.c -o eighth
 
 clean:
-	rm ./eighth
-
-run:
-	./eighth test.txt
-
-debug:
-	gcc eighth.c -Wall -Werror -fsanitize=address -g
+	rm -rf eighth
