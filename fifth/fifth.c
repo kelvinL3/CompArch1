@@ -4,32 +4,44 @@
 
 
 int main(int argc, char **argv) {
-	int size;
-	//argv is first input, filename?
-	fscanf(argv[1], "%d\t", &size);
-	int *array[size] = (int **)malloc(sizeof(int *) * size);
+	
+	//file check
+	if(access(argv[1], F_OK )==-1) {
+		printf("error");
+		exit(0);
+	}
+	
+	FILE *f;
+	f = fopen(argv[1], "r");
+	fscanf(f, "%d\n", &size); //copy size over
+	
+	int **array = (int **)malloc(sizeof(int *) * size);
 	int i;
 	for (i=0; i<size; i++) {
 		array[i] = (int *) malloc(sizeof(int) * size);
+		
 	}
+	
+	//reading file into array
 	int j;
 	for (i=0; i<size; i++) {
 		for (j=0; j<size; j++) {
-			fscanf(argv[0], "%d\t", &array[i][j]);
+			fscanf(f, " %d", &array[i][j]); //read into array
 		}
 	}
+	
 //sum up the top row, use that as comparison
 	int total = 0;
 	for (i=0; i<size; i++) {
 		total = total + array[i][0];
 	}
-	if (checkDifferent(array,size)!=1) {
+	if (checkDifferent(array, size)!=1) {
 		printf("not-magic");
-	} else if (checkHorizontalSum(array,total,size)!=1) {
+	} else if (checkHorizontalSum(array, total, size)!=1) {
 		printf("not-magic");
-	} else if (checkVerticalSum(array,total,size)!=1) {
+	} else if (checkVerticalSum(array, total, size)!=1) {
 		printf("not-magic");
-	} else if (checkDiagonalSum(array,total,size)!=1) {
+	} else if (checkDiagonalSum(array, total, size)!=1) {
 		printf("not-magic");
 	} else {	
 		printf("magic");
@@ -52,6 +64,7 @@ int checkDifferent(int **array, int size) {
 	return 1;
 }
 
+//helper method for checkDifferent
 int exists(int **array, int query, int size) {
 	int i;
 	int j;
@@ -116,3 +129,19 @@ int checkDiagonalSum(int **array, int same, int size){
 	
 	return 1;
 }
+
+void printMatrix(int **baseArray) {
+	int i;
+	int j;
+	for (i=0; i<size-1; i++) {
+		for (j=0; j<size-1; j++) {
+			printf("%d\t", baseArray[i][j]);
+		}
+		printf("%d\n", baseArray[i][j]);
+	}
+	for (j=0; j<size-1; j++) {
+		printf("%d\t", baseArray[i][j]);
+	}
+	printf("%d", baseArray[i][j]);
+}
+
