@@ -34,11 +34,7 @@ int main(int argc, char **argv) {
 		printf("compress: %c\n", toCompress);
 		for (j=i+1; j<strlen(compressed)+1; j++) { //find where the char changes
 			if (j==strlen(compressed) || compressed[j]!=toCompress) { //what happens when != is not the condition
-				//reached end of same character sequence
-				//replace compressed[i,j-1]
 				
-				//replace from [i, j)
-				//find and put number at i+1
 				freq = j-i;
 				printf("Before:%s:\n", compressed);
 				if (freq == 1) {
@@ -57,10 +53,6 @@ int main(int argc, char **argv) {
 				printf("After:%s:\n", compressed);
 				i++;
 				break;
-				//compressed[i+1] = (char) freq;
-				
-				//keep on copying data from (j->i+2) until j hits the upper bound
-				//add the null terminator after where i+2 stopped
 			}
 		}
 		/*freq = j-i;
@@ -121,13 +113,17 @@ char *cutOutFromString(char *str, int low, int high) {
 	//since str is dynamically allocated, cant use strlen()
 	char *temp = (char *)malloc(size-(high-low)+1);
 	int i;
-	for (i=0; i<low; i++) {
+	printf("start printing new string: \t");
+	for (i=0; i<=low; i++) {
 		temp[i] = str[i];
-	}
-	for (i=high+1; i<size; i++) {
-		temp[i-(high-low)+1] = str[i];
+		printf("%c ", temp[i]);
 	}
 	temp[low+1] = (char)(high-low+1);
+	printf("%c ", temp[low+1]);
+	for (i=high+1; i<size; i++) {
+		temp[i-(high-low)+1] = str[i];
+		printf("%c\n", temp[i-(high-low)+1]);
+	}
 	// a, low, b, c, d, high, e, f; size=8
 	// 0, 1  , 2, 3, 4, 5   , 6, 7; 
 	// a, low, n, e, f				size=5
