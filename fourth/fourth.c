@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
 	f = fopen(argv[1], "r");
 	fscanf(f, "%d\n", &size);
 	
-	
+	printf("Flag 1\n");
 	//argv is first input, filename?
 	int **array = (int **)malloc(sizeof(int *) * size);
 	int **baseArray = (int **)malloc(sizeof(int *) * size);
@@ -25,6 +25,7 @@ int main(int argc, char **argv) {
 		int *array = (int *) malloc(sizeof(int) * size);
 		int *baseArray = (int *) malloc(sizeof(int) * size);
 	}
+	printf("Flag 2\n");
 	int j;
 	for (i=0; i<size; i++) {
 		for (j=0; j<size; j++) {
@@ -38,7 +39,7 @@ int main(int argc, char **argv) {
 			fscanf(f, "\n");
 		}
 	}
-	
+	printf("Flag 3\n");
 //multiply the matrix size times
 	int times;
 	fscanf(f, "%d", &times);
@@ -47,7 +48,7 @@ int main(int argc, char **argv) {
 		multiply(baseArray, array);
 		times--;
 	}
-	
+	printf("Flag 4\n");
 //print out the matrix with no extra white space and no extra newline at end
 	for (i=0; i<size-1; i++) {
 		for (j=0; j<size-1; j++) {
@@ -56,7 +57,7 @@ int main(int argc, char **argv) {
 		printf("%d\n", baseArray[i][j]);
 	}
 	printf("%d", baseArray[i][j]);
-	
+	printf("Flag 5\n");
 //free all our malloced arrays
 	for (i=0; i<size; i++) {
 		free(array[i]);
