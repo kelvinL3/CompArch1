@@ -33,7 +33,6 @@ int main(int argc, char **argv) {
 	int j;
 	for (i=0; i<size; i++) {
 		for (j=0; j<size; j++) {
-			printf("try scan\n");
 			fscanf(f, " %d", &array[i][j]); //read into array
 			printf("scanned: %d\n",array[i][j]);
 			/*if (j<size-1) {
@@ -45,10 +44,10 @@ int main(int argc, char **argv) {
 			fscanf(f, "\n");
 		}*/
 	}
-	printf("Flag 3\n");
 //multiply the matrix size times
 	int times;
 	fscanf(f, "%d", &times);
+	printf("times: \n", times);
 	while (times>0) {
 		//baseArray increases every time
 		multiply(baseArray, array);
