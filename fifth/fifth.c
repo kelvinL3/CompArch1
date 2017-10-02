@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 		total = total + array[i][0];
 	}
 	if (checkDifferent(array)!=1) {
-		printf("1not-magic");
+		printf("not-magic");
 	} else if (checkHorizontalSum(array, total)!=1) {
 		printf("2not-magic");
 	} else if (checkVerticalSum(array, total)!=1) {
@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
 	} else if (checkDiagonalSum(array, total)!=1) {
 		printf("4not-magic");
 	} else {	
-		printf("5magic");
+		printf("magic");
 	}
 	
 	
@@ -64,7 +64,6 @@ int main(int argc, char **argv) {
 int checkDifferent(int **array) {
 	int query;
 	for (query=1; query<=(size*size); query++) {
-		printf("%d\n", query);
 		if (exists(array, query)==-1) {
 			return -1; //does not exist in this matrix, cant be magic
 		}
@@ -78,12 +77,9 @@ int exists(int **array, int query) {
 	int j;
 	for (i=0; i<size; i++) {
 		for (j=0; j<size; j++){
-			printf("%d, ", array[i][j]);
 			if (array[i][j] == query){
 				return 1;
-				printf("\n");
 			}
-			printf("\n");
 		}
 	}
 	return -1;
