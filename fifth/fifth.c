@@ -98,6 +98,7 @@ int checkHorizontalSum(int **array, int same, int size){
 int checkVerticalSum(int **array, int same, int size){
 	int i;
 	int j;
+	int total;
 	for (j=0; j<size; j++) {
 		total = 0;
 		for (i=0; i<size; i++) {
