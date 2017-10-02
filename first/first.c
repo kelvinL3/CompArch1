@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
 	int package = NULL;
 	while (fscanf(f, "%c", &instruction)!=EOF){
 		printf("Flag 2\n");
-		fscanf(f, " %d", &package);
+		fscanf(f, "%d", &package);
 		if (instruction == 'i') {
 			head = addNode(head, package);
 			printf("INSERT\n");
