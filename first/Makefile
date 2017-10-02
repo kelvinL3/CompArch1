@@ -2,10 +2,10 @@ all:
 	gcc first.c -O3 -g
 
 clean:
-	rm a.out
+	rm ./first
 
 run:
-	cat test.txt | ./a.out
+	cat test.txt | ./first
 
 debug:
 	gcc first.c -Wall -Werror -fsanitize=address -g

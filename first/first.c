@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 
 int main(int argc, char **argv) {
@@ -21,7 +22,7 @@ int main(int argc, char **argv) {
 	struct node *head =NULL;
 	//head->next = NULL;
 	//head->data = NULL;
-	char instruction = '';
+	char instruction = NULL;
 	int package = NULL;
 	while (fscanf(argv[1], "%c", instruction)!=EOF){
 		fscanf(argv[1], " %d", package)
