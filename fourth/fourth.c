@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
 		for (j=0; j<size; j++) {
 			fscanf(f, " %d", &array[i][j]); //read into array
 			printf("scanned: %d\n",array[i][j]);
-			baseArray[i][j] = array[i][i]; //copy over into baseArray
+			baseArray[i][j] = array[i][j]; //copy over into baseArray
 		}
 	}
 	
@@ -120,3 +120,4 @@ void printMatrix(int **baseArray) {
 	}
 	printf("%d", baseArray[i][j]);
 }
+
