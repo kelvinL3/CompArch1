@@ -1,6 +1,6 @@
 all: first
 
-first: first.c
+first: first
 	gcc -Wall -Werror -fsanitize=address first.c -o first
 
 clean:
