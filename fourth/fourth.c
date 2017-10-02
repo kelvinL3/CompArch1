@@ -43,8 +43,8 @@ int main(int argc, char **argv) {
 	int times;
 	fscanf(f, " %d", &times);
 	printf("times: %d \n", times);
-	while (times>0) {
-		printf("again");
+	while (times>1) {
+		printf("again\n");
 		//baseArray increases every time
 		multiply(baseArray, array);
 		times--;
