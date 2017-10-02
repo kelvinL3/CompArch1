@@ -81,7 +81,14 @@ int main(int argc, char **argv) {
 }
 
 int hash(int query, int size){
-	return query % size;
+	if (query>=0) {
+		return query % size;	
+	} else {
+		while (query<0) {
+			query = query + bucketNumber;
+		}
+		return query % size;
+	}
 }
 
 //1 means inserted, -1 means duplicate
