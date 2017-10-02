@@ -95,7 +95,7 @@ int main(int argc, char **argv) {
 				printf("absent\n");
 			}
 		} else if (instruction == 'd') {
-			root = deleteFromTree(root, data);
+			root = helperDelete(root, data);
 		}
 	}
 	
@@ -106,19 +106,27 @@ int main(int argc, char **argv) {
 
 
 //finds the left most node, used for replacing when deleting
-struct node *rightMostNode(struct node *head) {
+struct node *leftMostNode(struct node *head) {
 	struct node *prev = head;
 	struct node *ptr = head;
-	if (ptr->rightChild == NULL) {
+	if (ptr->leftChild == NULL) {
 		return ptr;
 	}
 	while (ptr != NULL) {
 		prev = ptr;
-		ptr = ptr->rightChild;
+		ptr = ptr->leftChild;
 	}
 	return prev;
 }
 
+struct node *helperDelete(struct node *root, int query) {
+	check = 0; //not found yet
+	struct node *temp =  deleteFromTree(root, query);
+	if (check == 0) { //never found
+		printf("fail\n");
+	}
+	return temp; 
+}
 
 struct node *deleteFromTree(struct node *root, int query) {
 	struct node *ptr = root;
@@ -131,24 +139,27 @@ struct node *deleteFromTree(struct node *root, int query) {
 		//delete the node right here
 		if (ptr->leftChild == NULL && ptr->rightChild == NULL) {
 			free(ptr);
+			check = 1;
 			printf("success\n");
 			return NULL;
 		} else if (ptr->leftChild == NULL) {
 			struct node *connect = ptr->rightChild;
 			free(ptr);
+			check = 1;
 			printf("success\n");
 			return connect;
 		} else if (ptr->rightChild == NULL) {
 			struct node *connect = ptr->leftChild;
 			free(ptr);
+			check = 1;
 			printf("success\n");
 			return connect;
 		} else { //there are two children
 			//go to left subtree, find the rightmost node of that subtree
-			struct node *replacement = rightMostNode(ptr->leftChild);
+			struct node *replacement = leftMostNode(ptr->rightChild);
 			int dataMoved = replacement->data;
 			ptr->data = dataMoved;
-			ptr->leftChild = deleteFromTree(ptr->leftChild, dataMoved);
+			ptr->rightChild = deleteFromTree(ptr->rightChild, dataMoved);
 			return ptr;
 		}
 	} else if (ptr->data < query) { //go to the right
@@ -156,12 +167,15 @@ struct node *deleteFromTree(struct node *root, int query) {
 	} else if (ptr->data > query) { //go to the left
 		ptr->leftChild = deleteFromTree(ptr->leftChild, query);
 	}
-	//printf("Why am I getting here???\n");
 	return ptr;
 }
 
 int calcHeight(struct node *head, int query) {
 	// assume the query is in the tree
+	if (head == NULL) {
+		return 0;
+	}
+	
 	int height=1;
 	while (head->data != query) {
 		if (head->data > query) {
