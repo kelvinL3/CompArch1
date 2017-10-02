@@ -62,10 +62,10 @@ int main(int argc, char **argv) {
 }
 
 int checkDifferent(int **array) {
-	int i;
-	for (i=0; i<size; i++) {
-		printf("%d", i);
-		if (exists(array, i)==-1) {
+	int query;
+	for (query=1; query<=size; query++) {
+		printf("%d", query);
+		if (exists(array, query)==-1) {
 			return -1; //does not exist in this matrix, cant be magic
 		}
 	}
