@@ -18,4 +18,8 @@ struct node *removeNode(struct node *head, int deleteData);
 //traverses the list to find the length
 int lengthOfList(struct node *head);
 
+//utility function
 void printList(struct node *head);
+
+//recursively free a malloc-ed linked list
+void freeList(struct node *head);
