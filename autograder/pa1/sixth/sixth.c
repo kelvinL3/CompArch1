@@ -7,7 +7,7 @@
 
 int main(int argc, char **argv) {
 	size = strlen(argv[1]);
-	char *uncompressed = malloc(size);
+	char *uncompressed = (char *)malloc(size);
 	char *compressed = (char *)malloc(size);
 	int i;
 	for (i=0;i<size;i++) {
@@ -25,18 +25,20 @@ int main(int argc, char **argv) {
 		printf("error");
 		exit(0);
 	}
-	
+	printf("1\n");
 	
 	int j;
 	int freq;
 	char toCompress;
 	for (i=0; i<strlen(compressed); i++) { //looping on the char to be compressed
+		printf("i=%d\n", i);
 		if (isdigit(compressed[i])) {
 			continue;
 		}
 		toCompress = compressed[i];
 //		printf("compress: %c\n", toCompress);
 		for (j=i+1; j<strlen(compressed)+1; j++) { //find where the char changes
+			printf("j=%d\n", j);
 			if (j==strlen(compressed) || compressed[j]!=toCompress) { //what happens when != is not the condition
 				
 				freq = j-i;
