@@ -24,9 +24,9 @@ int main(int argc, char **argv) {
 	while (fscanf(f, "%c", &instruction)!=EOF){
 		fscanf(f, " %d", &package);
 		if (instruction == 'i') {
-			head = addNode(head, data);
+			head = addNode(head, package);
 		} else if (instruction == 'd') {
-			head = removeNode(head, data);
+			head = removeNode(head, package);
 		}
 	}
 	

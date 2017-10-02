@@ -5,7 +5,7 @@
 struct node {
 	struct node *next;
 	int data;	
-}
+};
 
 // inserts the new entry, does nothing if duplicate
 // returns head
