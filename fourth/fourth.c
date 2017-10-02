@@ -115,5 +115,8 @@ void printMatrix(int **baseArray) {
 		}
 		printf("%d\n", baseArray[i][j]);
 	}
+	for (j=0; j<size-2; j++) {
+			printf("%d\t", baseArray[i][j]);
+	}
 	printf("%d", baseArray[i][j]);
 }
