@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
 struct node *addNode(struct node *head, int newData) {
 	//if *head points to NULL, which equals 0 or false; 
 	struct node *temp = head;
-	struct node *insert;
+	struct node *insert = (struct node *) malloc(sizeof(struct node));
 	insert->next = NULL;
 	insert->data = newData;
 	printf("ccc", newData);
