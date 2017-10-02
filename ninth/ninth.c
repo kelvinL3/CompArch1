@@ -32,7 +32,8 @@ int main(int argc, char **argv) {
 				root->leftChild = NULL;
 				root->rightChild = NULL;
 				root->data = data;
-				printf("inserted\n");
+				printf("inserted");
+				printf(" %d\n", calcHeight(root, data));
 				continue;
 				//skip to next instruction
 			}
@@ -49,7 +50,7 @@ int main(int argc, char **argv) {
 					ptr = ptr->leftChild;
 					direction = -1;
 				} else {
-					printf("duplicate\n");
+					printf("duplicate\n"); //dont print number here anyways, KEEP NEW LINE
 					break; //duplicate value //if code reaches here, then ptr is not NULL so the following if statement will not run
 				}
 			}
@@ -59,10 +60,12 @@ int main(int argc, char **argv) {
 				ptr->rightChild = NULL;
 				ptr->data = data;
 				if (direction == -1) {
-					printf("inserted\n");
+					printf("inserted");
+					printf(" %d\n", calcHeight(root, data));
 					prev->leftChild = ptr;
 				} else if (direction = 1) {
-					printf("inserted\n");
+					printf("inserted");
+					printf(" %d\n", calcHeight(root, data));
 					prev->rightChild = ptr;					
 				} else { //direction == 0
 					printf("ERROR WHY AM I HERE\n");
@@ -79,16 +82,16 @@ int main(int argc, char **argv) {
 				} else { //found the element
 					found = 1;
 					printf("present");
-					break;
+					printf(" %d\n", calcHeight(root, data));
+					break; //out of this while loop
 				}
 			}
 			if (found == 0) {
 				printf("absent");
 			}
 		} else if (instruction == 'd') {
-			
+			root = deleteFromTree(root, data);
 		}
-		printf("%d \n", calcHeight(root, data));
 	}
 	
 	freeTree(root);
@@ -123,14 +126,17 @@ struct node *deleteFromTree(struct node *root, int query) {
 		//delete the node right here
 		if (ptr->leftChild == NULL && ptr->rightChild == NULL) {
 			free(ptr);
+			printf("success\n");
 			return NULL;
 		} else if (ptr->leftChild == NULL) {
 			struct node *connect = ptr->rightChild;
 			free(ptr);
+			printf("success\n");
 			return connect;
 		} else if (ptr->rightChild == NULL) {
 			struct node *connect = ptr->leftChild;
 			free(ptr);
+			printf("success\n");
 			return connect;
 		} else { //there are two children
 			//go to left subtree, find the rightmost node of that subtree
