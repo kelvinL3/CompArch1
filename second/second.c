@@ -7,10 +7,10 @@
 
 int main(int argc, char **argv) {
 	if(access(argv[1], F_OK )==-1) {
-		printf("error");
+		printf("doesnt exist");
 		exit(0);
 	}
-	printf("HAHAHA\n");
+	
 	FILE *f;
 	f = fopen(argv[1], "r");
 	
