@@ -1,7 +1,7 @@
 all: seventh
-
+	
 seventh: seventh.c
-	gcc -Wall -Werror -fsanitize=address seventh.c -o seventh
+	gcc -g -Wall -Werror -fsanitize=address seventh.c -o seventh
 
-clean:
+clean: 
 	rm -rf seventh
