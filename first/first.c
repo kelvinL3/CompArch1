@@ -5,13 +5,13 @@
 
 
 int main(int argc, char **argv) {
-	
+	printf("%s\n", argv[0]);
 	//check if file exists
 	if(access(argv[1], F_OK )==-1) {
-    	printf("error");
-    	exit(0);
+		printf("error");
+		exit(0);
 	}
-	
+
 	//std in
 	//argc, argv
 	//argv is a line
@@ -22,10 +22,10 @@ int main(int argc, char **argv) {
 	struct node *head =NULL;
 	//head->next = NULL;
 	//head->data = NULL;
-	char instruction = NULL;
+	char instruction = NULL ;
 	int package = NULL;
-	while (fscanf(argv[1], "%c", instruction)!=EOF){
-		fscanf(argv[1], " %d", package)
+	while (fscanf(argv[1], "%c", &instruction)!=EOF){
+		fscanf(argv[1], " %d", &package)
 		if (instruction == 'i') {
 			head = addNode(head, data);
 		} else if (instruction == 'd') {

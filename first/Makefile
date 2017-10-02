@@ -5,7 +5,7 @@ clean:
 	rm ./first
 
 run:
-	cat test.txt | ./first
+	./first test.txt
 
 debug:
 	gcc first.c -Wall -Werror -fsanitize=address -g
