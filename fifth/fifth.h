@@ -2,10 +2,10 @@
 int size;
 
 //helper functions
-int checkDifferent(int **array, int size);
+int checkDifferent(int **array);
 
 //helper method for checkDifferent
-int exists(int **array, int query, int size);
+int exists(int **array, int query);
 
 int checkHorizontalSum(int **array, int same, int size);
 
