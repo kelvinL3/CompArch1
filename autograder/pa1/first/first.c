@@ -150,7 +150,6 @@ struct node *removeNode(struct node *head, int deleteData) {
 }
 
 int lengthOfList(struct node *head){
-	struct node *temp = head;
 	int i=0;
 	while(head != NULL){
 		head = head->next;
