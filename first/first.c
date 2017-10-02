@@ -5,10 +5,11 @@
 
 int main(int argc, char **argv) {
 	
-	
-	check if file exists
-		if not, printf("error") and return
-	
+	//check if file exists
+	if(access(argv[1], F_OK )==-1) {
+    	printf("error");
+    	exit(0);
+	}
 	
 	//std in
 	//argc, argv
@@ -17,33 +18,36 @@ int main(int argc, char **argv) {
 	//
 	//fscanf(filename, "%d\t", address) \t means \t is the delimiter
 	
-	struct node *head;
-	head->next = NULL;
-	head->data = NULL;
-	while (there exists next line){
-		parse the first thing as letter
-		parse the second thing as data (number)
-		if (letter = i) {
+	struct node *head =NULL;
+	//head->next = NULL;
+	//head->data = NULL;
+	char instruction = '';
+	int package = NULL;
+	while (fscanf(argv[1], "%c", instruction)!=EOF){
+		fscanf(argv[1], " %d", package)
+		if (instruction == 'i') {
 			head = addNode(head, data);
-		}
-		if (letter = i) {
-			head = addNode(head, data);
+		} else if (instruction == 'd') {
+			head = removeNode(head, data);
 		}
 	}
 	
 	int i = lengthOfList(head);
-	printf("%d\n",i);
+	
 	if (i==0) {
+		printf("0\n");
 		return 1;
 	} else { 
+		printf("%d\n",i);
 		while (i>0){
 			printf("%d\t", head->data);
 			head = head->next;
 			i--;
-		} 
+		}
 		printf("%d", head->data);
 	}
 	
+	lengthOfList(head);
 }
 
 struct node *addNode(struct node *head, int newData) {
@@ -97,9 +101,9 @@ struct node *removeNode(struct node *head, int deleteData) {
 	
 	//if the first node is deleted
 	if (ptr1->data == deleteData) {
-		return ptr2;
+		return ptr2; //return NULL
 	}
-	while (!ptr2) {
+	while (ptr2 != NULL) {
 		if (ptr2->data == deleteData) {
 			ptr1->next = ptr2->next;
 			return head;
@@ -113,7 +117,7 @@ struct node *removeNode(struct node *head, int deleteData) {
 int lengthOfList(struct node *head){
 	struct node *temp = head;
 	int i=0;
-	while(!head){
+	while(head != NULL){
 		head = head->next;
 		i++;
 	}
