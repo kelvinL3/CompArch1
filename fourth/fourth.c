@@ -34,14 +34,14 @@ int main(int argc, char **argv) {
 			printf("try scan");
 			fscanf(f, " %d", &array[i][j]); //read into array
 			printf("scanned: %d\n",array[i][j]);
-			if (j<size-1) {
+			/*if (j<size-1) {
 				fscanf(f, "\t");
-			}
+			}*/
 			baseArray[i][j] = array[i][i]; //copy over into baseArray
 		}
-		if (i<size-1) {
+		/*if (i<size-1) {
 			fscanf(f, "\n");
-		}
+		}*/
 	}
 	printf("Flag 3\n");
 //multiply the matrix size times
