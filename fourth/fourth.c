@@ -46,9 +46,10 @@ int main(int argc, char **argv) {
 	while (times>1) {
 		printf("again\n");
 		//baseArray increases every time
-		multiply(baseArray, array);
+		baseArray = multiply(baseArray, array);
 		times--;
 	}
+	
 	printf("Flag 4\n");
 //print out the matrix with no extra white space and no extra newline at end
 	for (i=0; i<size-1; i++) {
@@ -58,6 +59,9 @@ int main(int argc, char **argv) {
 		printf("%d\n", baseArray[i][j]);
 	}
 	printf("%d", baseArray[i][j]);
+	
+	
+	
 	printf("Flag 5\n");
 //free all our malloced arrays
 	for (i=0; i<size; i++) {
@@ -71,7 +75,7 @@ int main(int argc, char **argv) {
 	return 0;
 }
 
-void multiply(int **baseArray, int **array) {
+int ** multiply(int **baseArray, int **array) {
 	int i; int j;
 	
 	int **array1 = (int **)malloc(sizeof(int *) * size);
@@ -91,7 +95,7 @@ void multiply(int **baseArray, int **array) {
 		free(baseArray[i]);
 	}
 	free(baseArray);
-	baseArray = array1;
+	return array1;
 }
 
 int dot(int **baseArray, int **array, int rowNumber, int colNumber){
