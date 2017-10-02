@@ -6,7 +6,7 @@ struct node {
 
 int check;
 
-struct node *rightMostNode(struct node *head);
+struct node *leftMostNode(struct node *head);
 
 struct node *helperDelete(struct node *root, int query);
 

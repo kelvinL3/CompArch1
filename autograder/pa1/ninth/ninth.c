@@ -106,15 +106,15 @@ int main(int argc, char **argv) {
 
 
 //finds the left most node, used for replacing when deleting
-struct node *rightMostNode(struct node *head) {
+struct node *leftMostNode(struct node *head) {
 	struct node *prev = head;
 	struct node *ptr = head;
-	if (ptr->rightChild == NULL) {
+	if (ptr->leftChild == NULL) {
 		return ptr;
 	}
 	while (ptr != NULL) {
 		prev = ptr;
-		ptr = ptr->rightChild;
+		ptr = ptr->leftChild;
 	}
 	return prev;
 }
@@ -156,10 +156,10 @@ struct node *deleteFromTree(struct node *root, int query) {
 			return connect;
 		} else { //there are two children
 			//go to left subtree, find the rightmost node of that subtree
-			struct node *replacement = rightMostNode(ptr->leftChild);
+			struct node *replacement = leftMostNode(ptr->rightChild);
 			int dataMoved = replacement->data;
 			ptr->data = dataMoved;
-			ptr->leftChild = deleteFromTree(ptr->leftChild, dataMoved);
+			ptr->rightChild = deleteFromTree(ptr->rightChild, dataMoved);
 			return ptr;
 		}
 	} else if (ptr->data < query) { //go to the right
