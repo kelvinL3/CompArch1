@@ -47,16 +47,18 @@ int main(int argc, char **argv) {
 					ptr = ptr->rightChild;
 					direction = 1;
 				} else if (ptr->data > data) {
-					printf("1\n");
+					//printf("1\n");
 					ptr = ptr->leftChild;
-					printf("2\n");
+					//printf("2\n");
 					direction = -1;
 				} else {
 					printf("duplicate\n"); //dont print number here anyways, KEEP NEW LINE
 					break; //duplicate value //if code reaches here, then ptr is not NULL so the following if statement will not run
 				}
 			}
+			printf("3\n");
 			if (ptr==NULL) {
+				printf("4\n");
 				ptr = (struct node *)malloc(sizeof(struct node));
 				ptr->leftChild = NULL;
 				ptr->rightChild = NULL;
