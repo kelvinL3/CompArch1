@@ -7,7 +7,7 @@
 
 int main(int argc, char **argv) {
 	if(access(argv[1], F_OK )==-1) {
-		printf("doesnt exist");
+		printf("error");
 		exit(0);
 	}
 	
@@ -45,8 +45,7 @@ void sort(int *array, int size){
 	for (i=0; i<size; i++) {
 		int indexOfLowest;
 		int lowestRightNow = array[i];
-		int j = i;
-		for (j=i; j<size; j++){
+		for (j=i+1; j<size; j++){
 			if (array[j]<lowestRightNow) {
 				lowestRightNow = array[j];
 				indexOfLowest = j;
@@ -54,7 +53,7 @@ void sort(int *array, int size){
 		}
 		int temp = array[i]; 
 		array[i] = lowestRightNow;
-		array[j] = temp;
+		array[indexOfLowest] = temp;
 	}
 	return;
 }
