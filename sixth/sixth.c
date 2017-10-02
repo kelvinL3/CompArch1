@@ -116,13 +116,13 @@ char *cutOutFromString(char *str, int low, int high) {
 	printf("start printing new string: \t");
 	for (i=0; i<=low; i++) {
 		temp[i] = str[i];
-		printf("%c ", temp[i]);
+		printf("%c, ", temp[i]);
 	}
 	temp[low+1] = (char)(high-low+1);
-	printf("%c ", temp[low+1]);
+	printf("%c, ", temp[low+1]);
 	for (i=high+1; i<size; i++) {
 		temp[i-(high-low)+1] = str[i];
-		printf("%c\n", temp[i-(high-low)+1]);
+		printf("%c, ", temp[i-(high-low)+1]);
 	}
 	// a, low, b, c, d, high, e, f; size=8
 	// 0, 1  , 2, 3, 4, 5   , 6, 7; 
