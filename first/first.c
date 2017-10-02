@@ -160,6 +160,7 @@ void printList(struct node *head){
 		printf("%d\t", head->data);
 		head = head->next;
 	}
+	printf("\n");
 }
 
 void freeList(struct node *head) {
