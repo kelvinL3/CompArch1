@@ -66,7 +66,7 @@ int insert(struct node **array, int position, int insertValue){
 		struct node *ans = (struct node *)malloc(sizeof(struct node));
 		ans->data = insertValue;
 		ans->next = NULL;
-		temp = ans;
+		array[position] = ans;
 		return 1;
 	}
 	//if there wasnt a null pointer, there was something there
