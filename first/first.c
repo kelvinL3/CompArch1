@@ -67,6 +67,7 @@ int main(int argc, char **argv) {
 	}
 	printf("WHY ERROR?\n");
 	freeList(head);
+	printf("because?\n");
 }
 
 struct node *addNode(struct node *head, int newData) {
