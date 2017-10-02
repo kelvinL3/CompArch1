@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
 	f = fopen(argv[1], "r");
 	fscanf(f, "%d\n", &size);
 	
-	printf("size is: %d\n",size);
+	//printf("size is: %d\n",size);
 	//argv is first input, filename?
 	int **array = (int **)malloc(sizeof(int *) * size);
 	int **baseArray = (int **)malloc(sizeof(int *) * size);
