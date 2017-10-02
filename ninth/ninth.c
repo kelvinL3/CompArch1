@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
 	while (fscanf(f, " %c", &instruction)!=EOF) { //takes in the space and the int 
 		fscanf(f, " %d", &data);
 		//data is now read in
-		printf("instruction %c with data %d \n", instruction, data);
+		//printf("instruction %c with data %d \n", instruction, data);
 		if (instruction == 'i') { //insert
 			if (root==NULL) {
 				root = (struct node *)malloc(sizeof(struct node));
@@ -156,7 +156,7 @@ struct node *deleteFromTree(struct node *root, int query) {
 	} else if (ptr->data > query) { //go to the left
 		ptr->leftChild = deleteFromTree(ptr->leftChild, query);
 	}
-	printf("Why am I getting here???\n");
+	//printf("Why am I getting here???\n");
 	return ptr;
 }
 
