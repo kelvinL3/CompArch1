@@ -65,7 +65,7 @@ int checkDifferent(int **array) {
 	int i;
 	for (i=0; i<size; i++) {
 		printf("%d", i);
-		if (exists(array, i, size)==-1) {
+		if (exists(array, i)==-1) {
 			return -1; //does not exist in this matrix, cant be magic
 		}
 	}
