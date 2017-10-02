@@ -25,13 +25,12 @@ int main(int argc, char **argv) {
 	while (fscanf(f, "%c", &instruction)!=EOF){
 		printf("Flag 2\n");
 		fscanf(f, "%d", &package);
-		printf("Flag 3\n");
 		if (instruction == 'i') {
-			head = addNode(head, package);
 			printf("INSERT\n");
+			head = addNode(head, package);
 		} else if (instruction == 'd') {
-			head = removeNode(head, package);
 			printf("DELETE\n");
+			head = removeNode(head, package);
 		}
 	}
 	
