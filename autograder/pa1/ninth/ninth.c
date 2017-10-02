@@ -172,16 +172,16 @@ struct node *deleteFromTree(struct node *root, int query) {
 
 int calcHeight(struct node *head, int query) {
 	// assume the query is in the tree
-	int height=1;
-	while (head->data != query) {
-		if (head->data > query) {
-			head = head->leftChild;
-		} else {
-			head = head->rightChild;
-		}
-		height++;
+	if (head == NULL) {
+		return 0;
 	}
-	return height;
+	int a = 1 + calcHeight(head->leftChild);
+	int b = 1 + calcHeight(head->rightChild);
+	if (b>a) {
+		return b;
+	} else {
+		return a;
+	}
 }
 
 void freeTree(struct node *head) {
