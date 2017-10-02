@@ -76,11 +76,11 @@ int main(int argc, char **argv) {
 	
 	
 	
-	if (strlen(compressed)<=strlen(uncompressed)) {
+	//if (strlen(compressed)<=strlen(uncompressed)) {
 		printf("ans: %s\n", compressed);
-	} else {
-		printf("ans: %s\n", uncompressed);
-	}
+	//} else {
+	//	printf("ans: %s\n", uncompressed);
+	//}
 	
 	//dont forget to check for the listed errors 
 	
