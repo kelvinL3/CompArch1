@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <ctype.h>
 #include "sixth.h"
 
 int main(int argc, char **argv) {
@@ -30,6 +31,9 @@ int main(int argc, char **argv) {
 	int freq;
 	char toCompress;
 	for (i=0; i<strlen(compressed); i++) { //looping on the char to be compressed
+		if (isdigit(compressed[i])) {
+			continue;
+		}
 		toCompress = compressed[i];
 //		printf("compress: %c\n", toCompress);
 		for (j=i+1; j<strlen(compressed)+1; j++) { //find where the char changes
@@ -51,8 +55,8 @@ int main(int argc, char **argv) {
 					compressed = cutOutFromString(compressed, i, j-1);
 				}
 //				printf("After:%s:\n", compressed);
-				i++;
-				break;
+				
+				break; //breaks to the i loop
 			}
 		}
 		/*freq = j-i;
