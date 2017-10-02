@@ -78,7 +78,7 @@ struct node *addNode(struct node *head, int newData) {
 	if (head==NULL) {
 		return insert;
 	}
-	
+	printf("Mattress 1\n");
 	// if the new node should go at the beginning
 	if (newData < temp->data) {
 		insert->next = temp;
@@ -87,9 +87,11 @@ struct node *addNode(struct node *head, int newData) {
 		return head;
 	}
 	
+	printf("Mattress 2\n");
 	// if the new node should go anywhere else or is a duplicate
 	struct node *temp2 = head;
 	while (!temp) {
+		printf("Mattress 3\n");
 		temp2 = temp;
 		temp = temp->next;
 		if (temp==NULL) {
@@ -103,6 +105,7 @@ struct node *addNode(struct node *head, int newData) {
 			return head;
 		}
 	}
+	printf("Mattress 4\n");
 	//check the data of temp2 when it is on the last node
 	if (temp2->data < newData) {
 		temp2->next = insert;
