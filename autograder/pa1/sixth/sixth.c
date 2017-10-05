@@ -16,16 +16,18 @@ int main(int argc, char **argv) {
 	}
 	compressed[size] = '\0';
 	
+	printf("%s\n", compressed);
+	
 	int j = 1;
 	int counter = 0; //number of chars after that are the same
 	char same;
 	
 	for (i=0; i<strlen(compressed); i++) {
 		counter = 0; //start counter
-		printf("CompareMe%c\n", argv[1][i]);
-		same = argv[1][i];
+		printf("CompareMe %c\n", compressed[i]);
+		same = compressed[i];
 		for (j=i+1; j<strlen(compressed); j++) {
-			if (argv[1][j] != same) {
+			if (compressed[j] != same) {
 				if (counter==0) {
 					extend(compressed, j);
 					compressed[i+1] = (char)(1);
@@ -38,7 +40,7 @@ int main(int argc, char **argv) {
 				break;
 			}
 			counter++; //continue counter
-			printf("%c\n", argv[1][j]);
+			printf("%c\n", compressed[j]);
 		}
 		if (j==strlen(compressed)) {
 			if (counter==0) {
