@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
 		snprintf(temp, sizeof(temp), "%d", counter);
 		appendNum(ans, temp);
 		
-		//check if j reached the end
+		
 		printf("Effect:%s\n", compressed);
 		i=j;
 	}
@@ -60,13 +60,13 @@ int main(int argc, char **argv) {
 
 
 void append(char *ans, char letter) {
-	char *ans = (char *)realloc(ans, sizeof(ans)+1);
+	ans = (char *)realloc(ans, sizeof(ans)+1);
 	ans[sizeof(ans)-2] = letter;	
 	return;
 }
 
 void appendNum(char *ans, char *number) {
-	char *ans = (char *)realloc(ans, sizeof(ans)+sizeof(number));
+	ans = (char *)realloc(ans, sizeof(ans)+sizeof(number));
 	strcat(ans, number);
 	return;
 }
