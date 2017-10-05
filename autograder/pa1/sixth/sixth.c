@@ -10,14 +10,14 @@ int main(int argc, char **argv) {
 	//char *uncompressed = (char *)malloc(size);
 	//char *compressed = (char *)malloc(size);
 	
-	char *ptr1 = argv[1];
-	char *ptr2 = ptr1+1;
+	int i = 0;
+	int j = 1;
 	
 	
-	for (ptr1=argv[1]; ptr1!='\0'; ptr1++) {
-		printf("%c\n", *ptr1);
-		for (ptr2=ptr1+1; ptr2!='\0'; ptr2++) {
-			printf("%c\n", *ptr2);
+	for (i=0; i<size; i++) {
+		printf("%c\n", argv[i]);
+		for (j=0; j<size; j++) {
+			printf("%c\n", argv[j]);
 		}
 		printf("\n");
 	}
