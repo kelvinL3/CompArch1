@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 	
 	int j = 1;
 	int counter = 0; //number of chars after that are the same
-	char same = NUL;
+	char same;
 	
 	for (i=0; i<strlen(compressed); i++) {
 		counter = 0; //start counter

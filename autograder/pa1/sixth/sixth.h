@@ -6,7 +6,6 @@ int size;
 int validString(char *str);
 
 //add '1' and grow string by 1
-char *growString(char *str, int index);
-
-//cut out [low, high], inclusive, replace with char and number
-char *cutOutFromString(char *str, int low, int high);
+void extend(char *str, int index);
+	
+void squash(char *str, int index, int decreaseBy);
