@@ -28,11 +28,11 @@ int main(int argc, char **argv) {
 			if (argv[1][j] != same) {
 				if (counter==0) {
 					extend(compressed, j);
-					compressed[i+1] = "1";
+					compressed[i+1] = (char)(1);
 				} else if (counter==1) {
-					compressed[i+1] = "2";
+					compressed[i+1] = (char)(2);
 				} else {
-					squash(compressed, i+1, compressed-1);
+					squash(compressed, i+1, counter-1);
 				}
 				i++;
 				break;
@@ -43,11 +43,11 @@ int main(int argc, char **argv) {
 		if (j==strlen(compressed)) {
 			if (counter==0) {
 				extend(compressed, j);
-				compressed[i+1] = "1";
+				compressed[i+1] = (char)(1);
 			} else if (counter==1) {
-				compressed[i+1] = "2";
+				compressed[i+1] = (char)(2);
 			} else {
-				squash(compressed, i+1, compressed-1);
+				squash(compressed, i+1, counter-1);
 			}
 			break;
 		}
