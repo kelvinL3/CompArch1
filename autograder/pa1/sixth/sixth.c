@@ -27,43 +27,31 @@ int main(int argc, char **argv) {
 		counter = 0; //start counter
 		printf("CompareMe %c\n", compressed[i]);
 		same = compressed[i];
-		printf("strlen(compressed): %d\n", (int)strlen(compressed));
+		printf("i, j=i+1, strlen(compressed): %d, %d\n", i, (int)strlen(compressed));
 		j=j+1;
-		while (j<strlen(compressed)) {
+		while (compressed[j] == same && j<strlen(compressed)) {
 			printf("%c", compressed[j]);
-			if (compressed[j] != same) {
-				if (counter==0) {
-					extend(compressed, j);
-					compressed[i+1] = (char)(1);
-				} else if (counter==1) {
-					compressed[i+1] = (char)(2);
-				} else {
-					squash(compressed, i+1, counter-1);
-				}
-				i=i+2;
-				printf("Changed to: %s\n\n\n", compressed);
-				break;
-			}
 			j++;
 			counter++; //continue counter
 		}
-		i++;
+		printf("\n");
 		// should only get here for final condition
 		counter--;
-		printf("Ending Sequence\n");
-		if (j==strlen(compressed)) {
-			if (counter==0) {
-				extend(compressed, j);
-				compressed[i+1] = (char)(1);
-			} else if (counter==1) {
-				compressed[i+1] = (char)(2);
-			} else {
-				squash(compressed, i+1, counter-1);
-			}
-			break;
+		printf("Replace\n");
+		if (counter==0) {
+			printf("1\n");
+			extend(compressed, j);
+			compressed[i+1] = (char)(1);
+		} else if (counter==1) {
+			printf("2\n");
+			compressed[i+1] = (char)(2);
+		} else {
+			printf("3\n");
+			squash(compressed, i+1, counter-1);
 		}
 		//check if j reached the end
-		printf("Reached End?\n");
+		printf("Effect:%s\n", compressed);
+		i++;
 	}
 	/*
 	check which string is longer
