@@ -39,8 +39,8 @@ int main(int argc, char **argv) {
 		counter++;
 		printf("Replace\n");
 		
-		append(same);
-		appendNum(itoa(counter));
+		append(ans, same);
+		appendNum(ans, itoa(counter));
 		
 		//check if j reached the end
 		printf("Effect:%s\n", compressed);
