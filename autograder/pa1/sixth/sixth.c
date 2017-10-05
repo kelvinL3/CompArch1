@@ -40,9 +40,13 @@ int main(int argc, char **argv) {
 		printf("Replace\n");
 		
 		append(ans, same);
+		printf("1\n");
 		int numSize = 1+(counter/10);
+		printf("2\n");
 		char temp[numSize];
+		printf("3\n");
 		snprintf(temp, sizeof(temp), "%d", counter);
+		printf("4\n");
 		appendNum(ans, temp);
 		
 		
