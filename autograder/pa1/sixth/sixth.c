@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
 		int numSize = 1+(counter/10);
 		printf("2\n");
 		char temp[numSize];
-		printf("3\n");
+		printf("3 counter %d\n", counter);
 		snprintf(temp, sizeof(temp), "%d", counter);
 		printf("4 temp %s\n", temp);
 		appendNum(ans, temp);
