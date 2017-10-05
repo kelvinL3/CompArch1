@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
 	size = strlen(argv[1]);
 	
 	char *compressed = (char *)malloc(size+1);
-	
+	char *ans = (char *)malloc(2);
 	int i = 0;
 	for (i=0;i<size;i++) {
 		compressed[i] = argv[1][i];
@@ -34,24 +34,17 @@ int main(int argc, char **argv) {
 			j++;
 			counter++; //continue counter
 		}
-		printf("\n");
 		// should only get here for final condition
 		
+		counter++;
 		printf("Replace\n");
-		if (counter==0) {
-			printf("1\n");
-			extend(compressed, j);
-			compressed[i+1] = (char)(1);
-		} else if (counter==1) {
-			printf("2\n");
-			compressed[i+1] = (char)(2);
-		} else {
-			printf("3\n");
-			squash(compressed, i+1, counter-1);
-		}
+		
+		append(same);
+		appendNum(itoa(counter));
+		
 		//check if j reached the end
 		printf("Effect:%s\n", compressed);
-		i++;
+		i=j;
 	}
 	/*
 	check which string is longer
@@ -63,36 +56,15 @@ int main(int argc, char **argv) {
 }
 
 
-void extend(char *str, int index) {
-	char *ans = (char *)malloc(strlen(str)+2);
-	int i;
-	for (i=0; i<index; i++) {
-		ans[i] = str[i];
-	}
-	//ans[index];
-	for (i=index; i<strlen(str); i++) {
-		ans[i+1] = str[i];
-	}
-	ans[strlen(str)+1] = '\0';
-	
-	free (str);
-	str = ans;
+void append(char *ans, char letter) {
+	char *ans = (char *)realloc(ans, sizeof(ans)+1);
+	ans[sizeof(ans)-2] = letter;	
 	return;
 }
 
-void squash(char *str, int index, int decreaseBy) { //decreaseBy is the num of characters to cut off, 1 for aaa -> a3
-	char *ans = (char *)malloc(strlen(str)+1-decreaseBy);
-	int i;
-	for (i=0; i<index; i++) {
-		ans[i] = str[i];
-	}
-	//ans[index];
-	for (i=index+1; i<strlen(ans)-1; i++) {
-		ans[i] = str[i+decreaseBy];
-	}
-	ans[strlen(ans)-1] = '\0';
-	
-	free (str);
-	str = ans;
+void appendNum(char *ans, char *number) {
+	char** tmp = (char *)realloc(ans, sizeof(ans)+sizeof(number));
+	strcat(ans, number);
 	return;
 }
+
