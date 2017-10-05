@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
 		same = compressed[i];
 		printf("i, j=i+1, strlen(compressed): %d, %d\n", i, (int)strlen(compressed));
 		j=j+1;
-		while (compressed[j] == same && j<strlen(compressed)) {
+		while (j<strlen(compressed) && compressed[j] == same) {
 			printf("%c", compressed[j]);
 			j++;
 			counter++; //continue counter
