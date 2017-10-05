@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
 		}
 		printf("\n");
 		// should only get here for final condition
-		counter--;
+		
 		printf("Replace\n");
 		if (counter==0) {
 			printf("1\n");
