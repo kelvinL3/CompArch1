@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
 	size = strlen(argv[1]);
 	
 	char *compressed = (char *)malloc(size+1);
-	char *ans = (char *)malloc(2);
+	char *ans = (char *)malloc(1);
 	int i = 0;
 	for (i=0;i<size;i++) {
 		compressed[i] = argv[1][i];
@@ -18,11 +18,10 @@ int main(int argc, char **argv) {
 	
 	printf("%s\n", compressed);
 	
-	int j = 1;
 	int counter = 0; //number of chars after that are the same
 	char same;
-	
 	i=0;
+	int j = 1;
 	while (i<strlen(compressed)) {
 		counter = 0; //start counter
 		printf("CompareMe %c\n", compressed[i]);
@@ -46,7 +45,7 @@ int main(int argc, char **argv) {
 		char temp[numSize];
 		printf("3\n");
 		snprintf(temp, sizeof(temp), "%d", counter);
-		printf("4\n");
+		printf("4 temp %s\n", temp);
 		appendNum(ans, temp);
 		
 		
