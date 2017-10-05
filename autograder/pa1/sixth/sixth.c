@@ -22,12 +22,14 @@ int main(int argc, char **argv) {
 	int counter = 0; //number of chars after that are the same
 	char same;
 	
-	for (i=0; i<strlen(compressed); i++) {
+	i=0;
+	while (i<strlen(compressed)) {
 		counter = 0; //start counter
 		printf("CompareMe %c\n", compressed[i]);
 		same = compressed[i];
 		printf("strlen(compressed): %d\n", (int)strlen(compressed));
-		for (j=i+1; j<strlen(compressed); j++) {
+		j=j+1;
+		while (j<strlen(compressed)) {
 			printf("%c", compressed[j]);
 			if (compressed[j] != same) {
 				if (counter==0) {
@@ -38,16 +40,18 @@ int main(int argc, char **argv) {
 				} else {
 					squash(compressed, i+1, counter-1);
 				}
-				i++;
+				i=i+2;
 				printf("Changed to: %s\n\n\n", compressed);
 				break;
 			}
+			j++;
 			counter++; //continue counter
 		}
+		i++;
 		// should only get here for final condition
 		counter--;
+		printf("Ending Sequence\n");
 		if (j==strlen(compressed)) {
-			printf("Ending Sequence\n");
 			if (counter==0) {
 				extend(compressed, j);
 				compressed[i+1] = (char)(1);
