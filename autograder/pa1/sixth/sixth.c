@@ -64,14 +64,14 @@ int main(int argc, char **argv) {
 
 
 void append(char *ans, char letter) {
-	char *temp = (char *)realloc(ans, sizeof(ans)+1);
+	char *temp = realloc(ans, sizeof(ans)+1);
 	ans = temp;
 	ans[sizeof(ans)-2] = letter;	
 	return;
 }
 
 void appendNum(char *ans, char *number) {
-	char *temp = (char *)realloc(ans, sizeof(ans)+sizeof(number));
+	char *temp = realloc(ans, sizeof(ans)+sizeof(number));
 	ans = temp;
 	strcat(ans, number);
 	return;
