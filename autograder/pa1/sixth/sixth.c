@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
 		counter = 0; //start counter
 		printf("CompareMe %c\n", compressed[i]);
 		same = compressed[i];
-		printf("strlen(compressed): %d\n", strlen(compressed));
+		printf("strlen(compressed): %d\n", (int)strlen(compressed));
 		for (j=i+1; j<strlen(compressed)-1; j++) {
 			printf("%c", compressed[j]);
 			if (compressed[j] != same) {
