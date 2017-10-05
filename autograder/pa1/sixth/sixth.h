@@ -5,7 +5,6 @@ int size;
 //check that string is only letters
 int validString(char *str);
 
-//add '1' and grow string by 1
-void extend(char *str, int index);
+vvoid append(char *ans, char letter);
 	
-void squash(char *str, int index, int decreaseBy);
+void appendNum(char *ans, char *number);
