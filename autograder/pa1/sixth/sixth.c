@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
 		printf("CompareMe %c\n", compressed[i]);
 		same = compressed[i];
 		printf("strlen(compressed): %d\n", (int)strlen(compressed));
-		for (j=i+1; j<strlen(compressed)-1; j++) {
+		for (j=i+1; j<strlen(compressed); j++) {
 			printf("%c", compressed[j]);
 			if (compressed[j] != same) {
 				if (counter==0) {
@@ -44,7 +44,10 @@ int main(int argc, char **argv) {
 			}
 			counter++; //continue counter
 		}
+		// should only get here for final condition
+		counter--;
 		if (j==strlen(compressed)) {
+			printf("Ending Sequence\n");
 			if (counter==0) {
 				extend(compressed, j);
 				compressed[i+1] = (char)(1);
@@ -56,7 +59,7 @@ int main(int argc, char **argv) {
 			break;
 		}
 		//check if j reached the end
-		printf("\n");
+		printf("Reached End?\n");
 	}
 	/*
 	check which string is longer
