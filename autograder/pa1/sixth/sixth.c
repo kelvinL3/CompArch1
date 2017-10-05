@@ -40,7 +40,10 @@ int main(int argc, char **argv) {
 		printf("Replace\n");
 		
 		append(ans, same);
-		appendNum(ans, itoa(counter));
+		int numSize = 1+(counter/10);
+		char temp[numSize];
+		snprintf(temp, sizeof(temp), "%d", counter);
+		appendNum(ans, temp);
 		
 		//check if j reached the end
 		printf("Effect:%s\n", compressed);
@@ -63,7 +66,7 @@ void append(char *ans, char letter) {
 }
 
 void appendNum(char *ans, char *number) {
-	char** tmp = (char *)realloc(ans, sizeof(ans)+sizeof(number));
+	char *ans = (char *)realloc(ans, sizeof(ans)+sizeof(number));
 	strcat(ans, number);
 	return;
 }
