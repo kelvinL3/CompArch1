@@ -27,6 +27,7 @@ int main(int argc, char **argv) {
 		printf("CompareMe %c\n", compressed[i]);
 		same = compressed[i];
 		for (j=i+1; j<strlen(compressed); j++) {
+			printf("%c", compressed[j]);
 			if (compressed[j] != same) {
 				if (counter==0) {
 					extend(compressed, j);
@@ -37,10 +38,10 @@ int main(int argc, char **argv) {
 					squash(compressed, i+1, counter-1);
 				}
 				i++;
+				printf("Changed to: %s\n\n\n", compressed);
 				break;
 			}
 			counter++; //continue counter
-			printf("%c\n", compressed[j]);
 		}
 		if (j==strlen(compressed)) {
 			if (counter==0) {
